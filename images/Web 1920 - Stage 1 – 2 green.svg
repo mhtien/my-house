@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <clipPath id="clip-Web_1920_-_Stage_1_2_green">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_-_Stage_1_2_green" data-name="Web 1920 - Stage 1 – 2 green" clip-path="url(#clip-Web_1920_-_Stage_1_2_green)">
+    <rect width="1920" height="1080" fill="#fff"/>
+    <g id="Ground" transform="translate(592 872)" fill="#a8f1a7" stroke="#707070" stroke-width="1">
+      <rect width="736" height="151" stroke="none"/>
+      <rect x="0.5" y="0.5" width="735" height="150" fill="none"/>
+    </g>
+  </g>
+</svg>

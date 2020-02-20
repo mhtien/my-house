@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="167" height="167" viewBox="0 0 167 167">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="167" height="167" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Circular_Window" data-name="Circular Window" clip-path="url(#clip-path)">
+    <g id="Ellipse_1" data-name="Ellipse 1" fill="#fff" stroke="#707070" stroke-width="1">
+      <circle cx="83.5" cy="83.5" r="83.5" stroke="none"/>
+      <circle cx="83.5" cy="83.5" r="83" fill="none"/>
+    </g>
+    <g id="Ellipse_2" data-name="Ellipse 2" transform="translate(9 10)" fill="#fff" stroke="#707070" stroke-width="1">
+      <ellipse cx="74.5" cy="74" rx="74.5" ry="74" stroke="none"/>
+      <ellipse cx="74.5" cy="74" rx="74" ry="73.5" fill="none"/>
+    </g>
+    <g id="Rectangle_9" data-name="Rectangle 9" transform="translate(80 5)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="8" height="160" stroke="none"/>
+      <rect x="0.5" y="0.5" width="7" height="159" fill="none"/>
+    </g>
+    <g id="Rectangle_10" data-name="Rectangle 10" transform="translate(164 81) rotate(90)" fill="#fff" stroke="#707070" stroke-width="1">
+      <rect width="8" height="160" stroke="none"/>
+      <rect x="0.5" y="0.5" width="7" height="159" fill="none"/>
+    </g>
+  </g>
+</svg>

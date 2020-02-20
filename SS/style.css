@@ -1,0 +1,61 @@
+
+
+
+div, span, p {
+    font-size: 5vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* body of content position */
+
+.welcome {
+    font-family: 'Londrina Outline', cursive;
+}
+.centered {
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-top: 1rem;
+
+}
+/* font colors */
+.yellow {
+    color: goldenrod;
+}
+
+.blue {
+    color: teal;
+}
+/* font styling */
+.sticky-font {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    display: inline;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+/* sticky position elements */
+    
+.sticky-first {
+    position: sticky;
+    top: 0;
+ 
+}
+.sticky-second {
+    position: sticky;
+    top: 5vh;
+  
+}
+
+.sticky-third {
+    position: sticky;
+    top: 10vh;
+    
+}
+
+.icons-group {
+    display: flex;
+    justify-content: space-between;
+}
+

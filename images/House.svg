@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="657.414" height="729.207" viewBox="0 0 657.414 729.207">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="657.414" height="729.207" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="House" transform="translate(0 0)" clip-path="url(#clip-path)">
+    <path id="Body" d="M2966,240,2718,488V872h496V488Z" transform="translate(-2637.293 -143.293)" fill="rgba(229,229,228,0.93)" stroke="#707070" stroke-width="1"/>
+    <path id="Path_1" data-name="Path 1" d="M664,384" transform="translate(-647.293 -71.293)" fill="none" stroke="#707070" stroke-width="1"/>
+    <path id="Roof" d="M648,472l48,48L976,240l280,280,48-48L976,144Z" transform="translate(-647.293 -143.293)" fill="rgba(101,44,44,0.8)" stroke="#707070" stroke-linejoin="bevel" stroke-width="2"/>
+    <path id="shadow" d="M2958,248l256,256V488L2966,240Z" transform="translate(-2637.293 -143.293)" fill="rgba(52,52,52,0.5)"/>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <clipPath id="clip-Web_1920_-_Stage_1_0_background">
+      <rect width="1920" height="1080"/>
+    </clipPath>
+  </defs>
+  <g id="Web_1920_-_Stage_1_0_background" data-name="Web 1920 - Stage 1 – 0 background" clip-path="url(#clip-Web_1920_-_Stage_1_0_background)">
+    <rect width="1920" height="1080" fill="#fff"/>
+    <g id="Background" transform="translate(0 -1)">
+      <g id="Rectangle_17" data-name="Rectangle 17" transform="translate(0 1)" fill="#bbeef3" stroke="#707070" stroke-width="1">
+        <rect width="1920" height="1079" stroke="none"/>
+        <rect x="0.5" y="0.5" width="1919" height="1078" fill="none"/>
+      </g>
+      <path id="Path_9" data-name="Path 9" d="M3912.477,511.481s-75.213-29.64-225.639,77.52-215.89-98.04-286.924-242.82-534.849,17.1-671.347,45.6-200.569-38.76-367.709-45.6S1990,437.153,1990,437.153V931H3912.477Z" transform="translate(-1992 149)" fill="rgba(255,255,255,0.52)"/>
+    </g>
+  </g>
+</svg>

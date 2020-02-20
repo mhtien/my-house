@@ -1,0 +1,138 @@
+
+/* No borders */
+body {
+    background-image: url("images/background.svg");
+    margin: 0;
+}
+/* * {
+    border: 1px solid lime;
+} */
+
+ h1 {
+     margin: 1rem;
+ }
+
+/* body of content position */
+.main-body {
+    text-align: center;
+    
+}
+
+/* positioning */
+
+.house {
+    position: relative;
+    margin: 0;  
+    padding-bottom: 0;
+    display: flex;
+    margin: auto;
+    width: 500px;
+}
+
+/* house background */
+.house-base {
+    width:100%
+
+}
+
+.door {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    left: 90px;
+}
+
+.door > img {
+    width: 140px;
+}
+
+.door-text {
+    display: none;
+    background: white;
+    position: absolute;
+    left: -150px;
+    width: 100px;
+
+}
+
+.door .door-top {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+
+.door:hover .door-top {
+    display: inline;
+
+}
+
+.door:hover > .door-text {
+    display: block;
+}
+
+.window {
+    position: absolute;
+    bottom: 95px;
+    width: 140px;
+    left: 270px;
+}
+
+.circle {
+    position: absolute;
+    top: 45%;
+    width: 140px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.letterbox {
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    left: 0;
+}
+
+/* ground */
+
+
+.ground {
+    position: relative;
+    display: inline-block;
+}
+
+.ground .foundation-top {
+    /* display: none; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    
+
+}
+
+.ground>img {
+    transition: opacity 1s ease-in-out;
+}
+
+/* .ground:hover .foundation-top {
+    display: inline;
+    
+} */
+
+.ground>img.grass:hover {
+    opacity: 0;
+}
+
+/* font styles */
+
+.welcome {
+    font-family: 'Londrina Outline', cursive;
+    font-size: 4rem;
+    
+}
+
+/* scale */
+
+
