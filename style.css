@@ -4,7 +4,8 @@ body {
     background-image: url("images/background.svg");
     margin: 0;
 }
-/* * {
+/* helping with containers 
+* {
     border: 1px solid lime;
 } */
 
@@ -12,13 +13,15 @@ body {
      margin: 1rem;
  }
 
+ /* positioning */
+
 /* body of content position */
 .main-body {
     text-align: center;
     
 }
 
-/* positioning */
+/* House base container */
 
 .house {
     position: relative;
@@ -35,6 +38,7 @@ body {
 
 }
 
+/* Door  */
 .door {
     position: absolute;
     bottom: 0;
@@ -46,6 +50,8 @@ body {
     width: 140px;
 }
 
+/* Text for when door is hovered over */
+
 .door-text {
     display: none;
     background: white;
@@ -55,6 +61,7 @@ body {
 
 }
 
+/* new image when door is hovered over */
 .door .door-top {
     display: none;
     position: absolute;
@@ -62,6 +69,8 @@ body {
     left: 0;
 
 }
+
+/* Door hover action */
 
 .door:hover .door-top {
     display: inline;
@@ -72,6 +81,8 @@ body {
     display: block;
 }
 
+
+/* Rectanlgular Window */
 .window {
     position: absolute;
     bottom: 95px;
@@ -79,6 +90,7 @@ body {
     left: 270px;
 }
 
+/* Circular Winodw */
 .circle {
     position: absolute;
     top: 45%;
@@ -87,6 +99,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
+/* Letter box */
 .letterbox {
     position: absolute;
     bottom: 0;
@@ -94,8 +107,7 @@ body {
     left: 0;
 }
 
-/* ground */
-
+/* Ground */
 
 .ground {
     position: relative;
