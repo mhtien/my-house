@@ -1,13 +1,15 @@
 
 /* No borders */
 body {
-    background-image: url("images/background.svg");
+    background-image: url(images/background.svg);
+    background-repeat: no-repeat;
+    background-position: center;
     margin: 0;
 }
-/* helping with containers 
+/* helping with containers  */
 * {
     border: 1px solid lime;
-} */
+}
 
  h1 {
      margin: 1rem;
@@ -18,23 +20,46 @@ body {
 /* body of content position */
 .main-body {
     text-align: center;
-    
 }
 
-/* House base container */
+/* font styles */
+
+.welcome {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3rem;
+    color: white;
+    text-transform: uppercase;
+    display: inline-block;
+    border-bottom:  white solid 2px;
+}
+
+/* Elements container */
+
+.h-width {
+    width: 640px;
+}
 
 .house {
     position: relative;
-    margin: 0;  
-    padding-bottom: 0;
-    display: flex;
-    margin: auto;
-    width: 500px;
+    background-image: url(images/housebase.svg);
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    height: 700.5px;
+   
 }
 
 /* house background */
-.house-base {
-    width:100%
+.house-wrapper {
+    position: absolute;
+    width: 77.5%;
+    height: 250px;
+    bottom: 0%;
+    left: 50%;
+    background-color: orange;
+    transform: translate(-50%, 0%);
+}
+
+    
 
 }
 
@@ -53,12 +78,13 @@ body {
 /* Text for when door is hovered over */
 
 .door-text {
-    display: none;
-    background: white;
+    /* display: none; */
+    background: rgb(255, 255, 255, 0.5);
     position: absolute;
     left: -150px;
     width: 100px;
-
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* new image when door is hovered over */
@@ -78,11 +104,14 @@ body {
 }
 
 .door:hover > .door-text {
-    display: block;
+    /* display: block; */
+    opacity: 1;
+    
+   
 }
 
 
-/* Rectanlgular Window */
+/* Rectangular Window */
 .window {
     position: absolute;
     bottom: 95px;
@@ -109,6 +138,10 @@ body {
 
 /* Ground */
 
+.ground-line {
+    border:  white solid 2px;
+}
+
 .ground {
     position: relative;
     display: inline-block;
@@ -121,7 +154,6 @@ body {
     left: 0;
     z-index: -1;
     
-
 }
 
 .ground>img {
@@ -137,14 +169,25 @@ body {
     opacity: 0;
 }
 
-/* font styles */
 
-.welcome {
-    font-family: 'Londrina Outline', cursive;
-    font-size: 4rem;
-    
+
+/* testing background
+.test > img {
+    width: 100%;
 }
 
-/* scale */
+.daytime {
+    transition: opacity 1s ease-in-out;
+}
 
+.daytime:hover {
+    opacity: 0;
+}
+
+.nighttime {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+} */
 
