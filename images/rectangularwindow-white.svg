@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="192" height="147" viewBox="0 0 192 147">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="192" height="147" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="rectangular_window-white" data-name="rectangular window-white" clip-path="url(#clip-path)">
+    <rect id="Rectangle_16" data-name="Rectangle 16" width="160" height="120" transform="translate(16 8)" fill="#fdfeff"/>
+    <path id="Subtraction_13" data-name="Subtraction 13" d="M-5794,136h-176V0h176V136ZM-5962,8V128h160V8Z" transform="translate(5978)" fill="#def6f9"/>
+    <rect id="Rectangle_15" data-name="Rectangle 15" width="192" height="8" transform="translate(0 139)" fill="#def6f9"/>
+  </g>
+</svg>

@@ -8,7 +8,7 @@ body {
 }
 /* helping with containers  */
 * {
-    border: 1px solid lime;
+    /* border: 1px solid lime; */
 }
 
  h1 {
@@ -37,13 +37,13 @@ body {
 
 .h-width {
     width: 640px;
+    margin: 0 auto;
 }
 
 .house {
     position: relative;
-    background-image: url(images/housebase.svg);
+    background-image: url(images/housebase-white.svg);
     background-repeat: no-repeat;
-    margin: 0 auto;
     height: 700.5px;
    
 }
@@ -52,27 +52,15 @@ body {
 .house-wrapper {
     position: absolute;
     width: 77.5%;
-    height: 250px;
+    height: 69%;
     bottom: 0%;
     left: 50%;
-    background-color: orange;
+    /* background-color: orange; */
     transform: translate(-50%, 0%);
 }
 
     
 
-}
-
-/* Door  */
-.door {
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    left: 90px;
-}
-
-.door > img {
-    width: 140px;
 }
 
 /* Text for when door is hovered over */
@@ -111,21 +99,12 @@ body {
 }
 
 
-/* Rectangular Window */
-.window {
-    position: absolute;
-    bottom: 95px;
-    width: 140px;
-    left: 270px;
-}
-
 /* Circular Winodw */
 .circle {
     position: absolute;
-    top: 45%;
-    width: 140px;
+    top: 0%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
 }
 
 /* Letter box */
@@ -136,15 +115,49 @@ body {
     left: 0;
 }
 
+.gf-elements {
+    position: absolute;
+    width: 100%;
+    height: 240px;
+    bottom: 0%;
+    left: 50%;
+    /* background-color: blue; */
+    transform: translate(-50%, 0%);
+}
+
+/* Door  */
+.door {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    transform: translate(20%, 0%);
+}
+
+/* keep image aligned with container */
+.door>img {
+    display: block;
+}
+
+
+/* Rectangular Window */
+.window-white {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    transform: translate(-20%, 0%);
+}
+
 /* Ground */
 
 .ground-line {
-    border:  white solid 2px;
+    border-top:  white solid 8px;
+    margin: 5px auto;
+    width: 80%;
 }
 
 .ground {
     position: relative;
-    display: inline-block;
+    opacity: 0.5;
 }
 
 .ground .foundation-top {
