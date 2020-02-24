@@ -6,14 +6,16 @@ body {
     background-position: center;
     margin: 0;
 }
+
 /* helping with containers  */
-* {
-    /* border: 1px solid lime; */
-}
+/* * {
+    border: 1px solid lime;
+} */
 
  h1 {
      margin: 1rem;
  }
+
 
  /* positioning */
 
@@ -24,16 +26,78 @@ body {
 
 /* font styles */
 
-.welcome {
+.font-style {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 3rem;
     color: white;
     text-transform: uppercase;
-    display: inline-block;
+    display: block;
+}
+
+.welcome {
+    font-size: 3rem;
     border-bottom:  white solid 2px;
 }
 
-/* Elements container */
+.instruction {
+    font-size: 1rem;
+}
+/* sun */
+.sun {
+    position: absolute;
+    left: 10%;
+}
+
+
+/* sun hover */
+.sun .sun-color {
+    display: none;
+    position: absolute;
+    left: 0%;
+}
+
+.sun:hover .sun-color {
+    display: inline;
+}
+
+
+/* chimney smoke */
+.smoke-white {
+    display: inline;
+    position: absolute;
+    right: 10%;
+    width: 400px;
+    background-color: grey;
+}
+
+.smoke1 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    background-color: blueviolet;
+    display: inline-block;
+    transform: translate(0%, 0%);
+    z-index: 2;
+}
+
+.smoke2 {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    background-color:pink;
+    display: inline-block;
+    transform: translate(-50%, 20%);
+}
+
+.smoke3 {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    background-color:orange;
+    display: inline-block;
+    transform: translate(0%, 0%);
+}
+
+/* House elements container */
 
 .h-width {
     width: 640px;
@@ -48,6 +112,10 @@ body {
    
 }
 
+.house:hover {
+    background-image: url(images/housebase-color.svg);
+}
+
 /* house background */
 .house-wrapper {
     position: absolute;
@@ -57,10 +125,6 @@ body {
     left: 50%;
     /* background-color: orange; */
     transform: translate(-50%, 0%);
-}
-
-    
-
 }
 
 /* Text for when door is hovered over */
@@ -75,21 +139,9 @@ body {
     transition: opacity 0.5s ease-in-out;
 }
 
-/* new image when door is hovered over */
-.door .door-top {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
 
-}
 
-/* Door hover action */
-
-.door:hover .door-top {
-    display: inline;
-
-}
+/* hover for text */
 
 .door:hover > .door-text {
     /* display: block; */
@@ -106,6 +158,19 @@ body {
     left: 50%;
     transform: translate(-50%, 0%);
 }
+
+/* hovered */
+.circle .circle-color {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.circle:hover .circle-color {
+    display: inline;
+}
+
 
 /* Letter box */
 .letterbox {
@@ -133,6 +198,20 @@ body {
     transform: translate(20%, 0%);
 }
 
+/* new image when door is hovered over */
+.door .door-color {
+    display: none;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
+}
+
+.door:hover .door-color {
+    display: inline;
+
+}
+
 /* keep image aligned with container */
 .door>img {
     display: block;
@@ -140,12 +219,26 @@ body {
 
 
 /* Rectangular Window */
-.window-white {
+.window {
     position: absolute;
     top: 0%;
     right: 0%;
     transform: translate(-20%, 0%);
 }
+
+.window .window-color {
+    display: none;
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    transform: translate(0%, 0%);
+}
+
+.window:hover .window-color {
+    display: inline;
+}
+
+
 
 /* Ground */
 

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="700.501" viewBox="0 0 640 700.501">
+  <g id="housebase-color" transform="translate(-640 -172)">
+    <path id="Roof" d="M656,480l40,40L976,240l280,280,40-40L976,160Z" transform="translate(-16 12)" fill="#c9c9c9"/>
+    <path id="Path_12" data-name="Path 12" d="M5140,344l-64-64V224.866h64Z" transform="translate(-3964 34)" fill="#dddada"/>
+    <path id="House" d="M-3484,608.5h-496V248L-3732,0l248,248V608.5Z" transform="translate(4691.999 264)" fill="#b7b7b7"/>
+  </g>
+</svg>
