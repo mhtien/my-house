@@ -1,22 +1,21 @@
 const sun = document.getElementsByClassName("sun")[0];
 
-const body1 = getComputedStyle(document.body)
-const daytimebg = "url('images/background.svg')"
-const nighttimebg = "url('images/background-night.svg')"
+
 
 function replaceBackground(event) {
-       if (body1.getPropertyValue("background-image") === daytimebg) {
-           document.body.style.setProperty("background-image", nighttimebg)
-       } else {
-        document.body.style.setProperty("background-image", daytimebg)
-       }
-      
+    const hiddenElement = document.getElementsByClassName("hidden-sky")[0];
+    const nightBg = document.getElementsByClassName("night-background")[0];
+    if (hiddenElement == undefined) {
+        nightBg.classList.add("hidden-sky")
+    } else {
+        nightBg.classList.remove("hidden-sky");
+    }
 
 }
 
 
 
-sun.addEventListener("click", replaceBackground) 
+sun.addEventListener("click", replaceBackground);
 
 
 // const sun = document.getElementsByClassName("sun")[0];
@@ -29,7 +28,7 @@ sun.addEventListener("click", replaceBackground)
 //     } else {
 //         body.style.backgroundImage = "url("images/background.svg")"
 //     }
-    
+
 
 // }
 
