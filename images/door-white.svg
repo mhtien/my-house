@@ -2,9 +2,9 @@
   <g id="door-white" transform="translate(-776 -632)">
     <rect id="architrave" width="167" height="240" transform="translate(776 632)" fill="#def6f9"/>
     <path id="door_frame" data-name="door frame" d="M-3828,232h-8V8h-136V232h-8V0h152V232Z" transform="translate(4764 640)" fill="#fdfeff"/>
-    <circle id="doorknob" cx="8" cy="8" r="8" transform="translate(896 760)" fill="#def6f9"/>
     <rect id="doorleaf" width="127" height="219" transform="translate(796.5 652.5)" fill="#fff"/>
     <rect id="letter" width="56" height="16" transform="translate(832 776)" fill="#def6f9"/>
     <path id="heart" d="M2846,688s-21.372-34.115-32-24,32,56,32,56,26.4-17,32-48S2846,688,2846,688Z" transform="translate(-1982.569 24)" fill="#def6f9"/>
+    <circle id="doorknob" cx="8" cy="8" r="8" transform="translate(896 760)" fill="#def6f9"/>
   </g>
 </svg>

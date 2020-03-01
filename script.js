@@ -2,36 +2,27 @@ const sun = document.getElementsByClassName("sun")[0];
 
 
 
-function replaceBackground(event) {
-    const hiddenElement = document.getElementsByClassName("hidden-sky")[0];
-    const nightBg = document.getElementsByClassName("night-background")[0];
-    if (hiddenElement == undefined) {
-        nightBg.classList.add("hidden-sky")
+function nightMode(event) {
+    const hidden = document.body.classList[0];
+    const bodyClass = document.body;
+    const sunVis = document.getElementsByClassName("sun-vis")[0];
+    const moonVis = document.getElementsByClassName("moon-vis")[0];
+
+
+    
+    if (hidden == undefined) {
+        bodyClass.classList.add("hidden");
+        sunVis.classList.remove("hide-sun");
+        moonVis.classList.add("hide-sun");
+       
     } else {
-        nightBg.classList.remove("hidden-sky");
+        bodyClass.classList.remove("hidden");  
+        sunVis.classList.add("hide-sun");
+        moonVis.classList.remove("hide-sun");
     }
 
 }
 
 
 
-sun.addEventListener("click", replaceBackground);
-
-
-// const sun = document.getElementsByClassName("sun")[0];
-
-// let body = document.body;
-
-// function replaceBackground(event) {
-//     if (body.style.backgroundImage === "url("images/background.svg")") {
-//         body.style.backgroundImage = "url('images/background-night.svg')"
-//     } else {
-//         body.style.backgroundImage = "url("images/background.svg")"
-//     }
-
-
-// }
-
-
-
-// sun.addEventListener("click", replaceBackground) 
+sun.addEventListener("click", nightMode);

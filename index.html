@@ -15,15 +15,22 @@
     <title>MHT here!</title>
 </head>
 
-<body>
-    <img class="sky-background" src="images\background.svg" alt="sky-background">
-    <img class="night-background hidden-sky" src="images\background-night.svg" alt="night-background">
+<body class="hidden">
+    <img class="background-sky" src="images\background.svg" alt="background-sky">
+    <img class="background-night" src="images\background-night.svg" alt="background-night">
     <div class="main-body">
         <h1 class="welcome h-width font-style">Welcome to my Home!</h1>
         <h2 class="instruction h-wdith font-style">Please do browse around by hovering over elements</h2>
         <div class="sun">
-                <img src="images\sun-white.svg" alt="sun-white">
+            <div class="sun-vis">
+                <img class="sun-white "src="images\sun-white.svg" alt="sun-white">
                 <img class="sun-color" src="images\sun-color.svg" alt="sun-color">
+            </div>
+            <div class="moon-vis hide-sun">
+                <img class="moon" src="images\moon.svg" alt="moon">
+
+            </div>
+                <!-- <img class="moon" src="images\moon.svg" alt="moon"> -->
         </div>
         <div class="smoke-white">
             <div class="smoke1">
@@ -48,11 +55,13 @@
             <div class="house-wrapper">
                 <div class="circle">
                     <img src="images\circularwindow-white.svg" alt="circle-window-white">
+                    <img class="circle-night" src="images\circularwindow-night.svg" alt="circle-window-night">
                     <img class="circle-color" src="images\circularwindow-color.svg" alt="circle-window-color">
                 </div>
                 <div class="gf-elements">
                     <div class="door">
                         <img src="images\door-white.svg" alt="door-white">
+                        <img class="door-night" src="images\door-night.svg" alt="door-night">
                         <img class="door-color" src="images\door-color.svg" alt="door-color">
 
                     </div>
@@ -63,6 +72,7 @@
                     </div> -->
                     <div class="window">
                         <img src="images\rectangularwindow-white.svg" alt="window-white">
+                        <img class="window-night" src="images\rectangularwindow-night.svg" alt="window-night">
                         <img class="window-color" src="images\rectangularwindow-color.svg" alt="window-color">
                     </div>
                 </div>

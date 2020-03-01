@@ -16,24 +16,20 @@
      margin: 1rem;
  }
 
- .sky-background {
+ .background-sky {
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
  }
 
- .night-background {
+ .background-night {
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
     opacity: 1;
     transition: opacity 2s ease-in-out;
- }
-
- .hidden-sky {
-     opacity: 0;
  }
 
 
@@ -66,6 +62,14 @@
     position: absolute;
     left: 10%;
     z-index: 1;
+    transition: opacity 2s ease-in-out;
+}
+
+.moon {
+    position: absolute;
+    left: 0%;
+    z-index: 1;
+    transition: opacity 2s ease-in-out;
 }
 
 
@@ -180,6 +184,14 @@
     transform: translate(-50%, 0%);
 }
 
+.circle-night {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: opacity 2s ease-in-out;
+}
+
 /* hovered */
 .circle .circle-color {
     display: none;
@@ -233,6 +245,15 @@
 
 }
 
+/* door at night time */
+.door-night {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+ }
+
 /* keep image aligned with container */
 .door>img {
     display: block;
@@ -246,6 +267,14 @@
     right: 0%;
     transform: translate(-20%, 0%);
 }
+
+.window-night {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    transition: opacity 2s ease-in-out;
+}
+
 
 .window .window-color {
     display: none;
@@ -297,25 +326,13 @@
     opacity: 0;
 }
 
-
-
-/* testing background
-.test > img {
-    width: 100%;
-}
-
-.daytime {
-    transition: opacity 1s ease-in-out;
-}
-
-.daytime:hover {
+.hidden .background-night,
+.hidden .circle-night,
+.hidden .window-night,
+.hidden .door-night {
     opacity: 0;
 }
 
-.nighttime {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-} */
-
+.hide-sun {
+    display: none;
+}
