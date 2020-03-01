@@ -1,16 +1,10 @@
-
-/* No borders */
-/* body {
-    background-image: url(images/background.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 0;
-} */
-
 /* helping with containers  */
-/* * {
+* {
     border: 1px solid lime;
-} */
+}
+body {
+    overflow-x: hidden;
+}
 
  h1 {
      margin: 1rem;
@@ -38,6 +32,7 @@
 /* body of content position */
 .main-body {
     text-align: center;
+    margin: auto;
 }
 
 /* font styles */
@@ -50,6 +45,7 @@
 }
 
 .welcome {
+    display: inline;
     font-size: 3rem;
     border-bottom:  white solid 2px;
 }
@@ -68,6 +64,7 @@
 .moon {
     position: absolute;
     left: 0%;
+    top: 0%;
     z-index: 1;
     transition: opacity 2s ease-in-out;
 }
@@ -125,7 +122,8 @@
 /* House elements container */
 
 .h-width {
-    width: 640px;
+    width: 100%;
+    max-width: 640px;
     margin: 0 auto;
 }
 
@@ -133,23 +131,25 @@
     position: relative;
     background-image: url(images/housebase-white.svg);
     background-repeat: no-repeat;
-    height: 700.5px;
-   
+    background-size: 100%;
 }
 
 .house:hover {
     background-image: url(images/housebase-color.svg);
 }
 
+.house:hover .gf-elements {
+    background-color: #B7B7B7;
+}
+S
 /* house background */
 .house-wrapper {
-    position: absolute;
-    width: 77.5%;
-    height: 69%;
-    bottom: 0%;
-    left: 50%;
+    /* width: 77.5%;
+    height: 69%; */
+    /* bottom: 0%;
+    left: 50%; */
     /* background-color: orange; */
-    transform: translate(-50%, 0%);
+    /* transform: translate(-50%, 0%); */
 }
 
 /* Text for when door is hovered over */
@@ -172,16 +172,13 @@
     /* display: block; */
     opacity: 1;
     
-   
 }
 
 
 /* Circular Winodw */
 .circle {
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    margin: auto;
+    padding-top: 200px;
 }
 
 .circle-night {
@@ -214,30 +211,49 @@
 }
 
 .gf-elements {
-    position: absolute;
-    width: 100%;
-    height: 240px;
-    bottom: 0%;
-    left: 50%;
+    max-width: 100%;
+    margin: 0 11.3%;
     /* background-color: blue; */
-    transform: translate(-50%, 0%);
+}
+
+
+@media (min-width: 768px) {
+    .gf-elements {
+        height: 300px;
+        position: relative;
+    } 
 }
 
 /* Door  */
 .door {
-    position: absolute;
-    bottom: 0%;
-    left: 0%;
-    transform: translate(20%, 0%);
+    position: relative;
+    margin: 20px auto 0px auto;
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
+    .door {
+        position: absolute;
+        left: 8%;
+        bottom: 0%;
+    }
 }
 
 /* new image when door is hovered over */
 .door .door-color {
     display: none;
     position: absolute;
-    bottom: 0%;
+    top: 0%;
     left: 0%;
-    transform: translate(0%, 0%);
+}
+
+@media (min-width: 768px) {
+    .door .door-color {
+        display: none;
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+    }
 }
 
 .door:hover .door-color {
@@ -255,17 +271,21 @@
  }
 
 /* keep image aligned with container */
-.door>img {
-    display: block;
-}
 
 
 /* Rectangular Window */
 .window {
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    transform: translate(-20%, 0%);
+    position: relative;
+    margin: 20px auto 0px auto;
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
+    .window {
+        position: absolute;
+        right: 0%;
+        top: 12%;
+    }
 }
 
 .window-night {
@@ -275,20 +295,25 @@
     transition: opacity 2s ease-in-out;
 }
 
-
 .window .window-color {
     display: none;
     position: absolute;
+    left: 0%;
     top: 0%;
+}
+
+@media (min-width: 768px) {
+.window .window-color {
+    display: none;
+    position: absolute;
+    top: 12%;
     right: 0%;
-    transform: translate(0%, 0%);
+    }
 }
 
 .window:hover .window-color {
     display: inline;
 }
-
-
 
 /* Ground */
 
@@ -334,5 +359,5 @@
 }
 
 .hide-sun {
-    display: none;
+    opacity: 0;
 }
