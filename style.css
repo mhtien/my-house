@@ -1,6 +1,6 @@
 /* helping with containers  */
 * {
-    border: 1px solid lime;
+    border: solid 1px green;
 }
 body {
     overflow-x: hidden;
@@ -108,6 +108,7 @@ body {
     background-color:pink;
     display: inline-block;
     transform: translate(-50%, 20%);
+    z-index: 1;
 }
 
 .smoke3 {
@@ -124,7 +125,7 @@ body {
 .h-width {
     width: 100%;
     max-width: 640px;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .house {
@@ -132,6 +133,7 @@ body {
     background-image: url(images/housebase-white.svg);
     background-repeat: no-repeat;
     background-size: 100%;
+    padding-top: 200px;
 }
 
 .house:hover {
@@ -141,7 +143,8 @@ body {
 .house:hover .gf-elements {
     background-color: #B7B7B7;
 }
-S
+
+
 /* house background */
 .house-wrapper {
     /* width: 77.5%;
@@ -154,31 +157,12 @@ S
 
 /* Text for when door is hovered over */
 
-.door-text {
-    /* display: none; */
-    background: rgb(255, 255, 255, 0.5);
-    position: absolute;
-    left: -150px;
-    width: 100px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-
-
-/* hover for text */
-
-.door:hover > .door-text {
-    /* display: block; */
-    opacity: 1;
-    
-}
 
 
 /* Circular Winodw */
 .circle {
     margin: auto;
-    padding-top: 200px;
+    position: relative;
 }
 
 .circle-night {
@@ -213,7 +197,9 @@ S
 .gf-elements {
     max-width: 100%;
     margin: 0 11.3%;
-    /* background-color: blue; */
+    background-color: #FFFFFF;
+    /* font size is to keep image algned with house */
+    font-size: 0;
 }
 
 
@@ -227,7 +213,7 @@ S
 /* Door  */
 .door {
     position: relative;
-    margin: 20px auto 0px auto;
+    margin: 30px auto -5px auto;
     display: inline-block;
 }
 
@@ -235,7 +221,8 @@ S
     .door {
         position: absolute;
         left: 8%;
-        bottom: 0%;
+        /* bottom is to keep image algned with house */
+        bottom: 1.5%;
     }
 }
 
@@ -243,7 +230,6 @@ S
 .door .door-color {
     display: none;
     position: absolute;
-    top: 0%;
     left: 0%;
 }
 
@@ -264,33 +250,33 @@ S
 /* door at night time */
 .door-night {
     position: absolute;
-    bottom: 0%;
     left: 0%;
     opacity: 1;
     transition: opacity 2s ease-in-out;
  }
 
-/* keep image aligned with container */
 
 
 /* Rectangular Window */
 .window {
     position: relative;
-    margin: 20px auto 0px auto;
-    display: inline-block;
+    margin: auto;
+    padding-top: 20px;
+    display: table;
 }
 
 @media (min-width: 768px) {
     .window {
         position: absolute;
-        right: 0%;
-        top: 12%;
+        right: 8%;
+        top: 13.5%;
+        display: inline-block;
     }
 }
 
 .window-night {
     position: absolute;
-    top: 0%;
+    top: 20px;
     right: 0%;
     transition: opacity 2s ease-in-out;
 }
@@ -299,19 +285,23 @@ S
     display: none;
     position: absolute;
     left: 0%;
-    top: 0%;
+    top: 20px;
 }
 
 @media (min-width: 768px) {
 .window .window-color {
     display: none;
     position: absolute;
-    top: 12%;
-    right: 0%;
     }
 }
 
 .window:hover .window-color {
+    display: inline;
+}
+
+
+/* image carousel */
+.image-carousel, .slide {
     display: inline;
 }
 
@@ -320,35 +310,31 @@ S
 .ground-line {
     border-top:  white solid 8px;
     margin: 5px auto;
-    width: 80%;
+    width: 100%;
     z-index: 1;
 }
 
 .ground {
+    width: 100%;
     position: relative;
-    opacity: 0.5;
+    margin: auto;
 }
 
-.ground .foundation-top {
-    /* display: none; */
-    position: absolute;
+.ground .foundation-white {
+    display: inline;
     top: 0;
     left: 0;
-    z-index: -1;
-    
+    opacity: 0;
 }
 
 .ground>img {
+    max-width: 100%;
     transition: opacity 1s ease-in-out;
 }
 
-/* .ground:hover .foundation-top {
-    display: inline;
+.ground:hover .foundation-white {
+    opacity: 1;
     
-} */
-
-.ground>img.grass:hover {
-    opacity: 0;
 }
 
 .hidden .background-night,

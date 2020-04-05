@@ -1,13 +1,10 @@
 const sun = document.getElementsByClassName("sun")[0];
 
-
-
 function nightMode(event) {
     const hidden = document.body.classList[0];
     const bodyClass = document.body;
     const sunVis = document.getElementsByClassName("sun-vis")[0];
     const moonVis = document.getElementsByClassName("moon-vis")[0];
-
 
     
     if (hidden == undefined) {
@@ -22,7 +19,5 @@ function nightMode(event) {
     }
 
 }
-
-
 
 sun.addEventListener("click", nightMode);
