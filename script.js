@@ -1,3 +1,4 @@
+// night time sky 
 const sun = document.getElementsByClassName("sun")[0];
 
 function nightMode(event) {
@@ -21,3 +22,7 @@ function nightMode(event) {
 }
 
 sun.addEventListener("click", nightMode);
+
+
+// image carousel
+

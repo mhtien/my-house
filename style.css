@@ -24,8 +24,8 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    /* for night sky to appear*/
-    /* z-index: -1; */
+    /* for h1 class to appear*/
+    z-index: -1;
     opacity: 1;
     transition: opacity 2s ease-in-out;
  }
@@ -51,6 +51,7 @@ body {
 .welcome {
     display: inline;
     font-size: 3rem;
+    /* underline */
     border-bottom:  white solid 2px;
 }
 
@@ -307,20 +308,59 @@ body {
 /* image carousel */
 
 .carousel {
-    width: 30%;
-    height: auto;
-    display: inline;
+    position: absolute;
+    height: 130px;
+    width: 164px;
+    /* overflow: hidden; */
 }
 
 .slide {
-    display: inline-block;
-}
-
-.slide {
+    position: absolute;
+    margin: 0;
 
 }
 
+.image-1 {
+    border: blue 1px solid;
 
+}
+
+.image-2 {
+    border: red 1px solid;
+
+}
+
+.image-3 {
+    border:green 1px solid;
+
+}
+
+.img-exit {
+overflow: hidden;
+width: 100%;
+left: 0;
+transition: all 1s linear;
+}
+
+.img-enter {
+overflow: hidden;
+width: 100%;
+right: -100%;
+transition: all 1s linear;
+}
+
+.img-hidden {
+    display: none;
+}
+
+.carousel:hover .img-enter {
+    right: 0%;
+    /* width: 100%; */
+}
+
+.carousel:hover .img-exit {
+    left: -100%;
+}
 /* Ground */
 
 .ground-line {
