@@ -2,6 +2,8 @@
 * {
     border: solid 1px green;
 }
+
+/* removing the scroll bar along x-axis */
 body {
     overflow-x: hidden;
 }
@@ -14,14 +16,16 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    /* for night sky to appear*/
+    z-index: -1; 
  }
 
  .background-night {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    /* for night sky to appear*/
+    /* z-index: -1; */
     opacity: 1;
     transition: opacity 2s ease-in-out;
  }
@@ -301,9 +305,21 @@ body {
 
 
 /* image carousel */
-.image-carousel, .slide {
+
+.carousel {
+    width: 30%;
+    height: auto;
     display: inline;
 }
+
+.slide {
+    display: inline-block;
+}
+
+.slide {
+
+}
+
 
 /* Ground */
 
@@ -347,3 +363,4 @@ body {
 .hide-sun {
     opacity: 0;
 }
+
