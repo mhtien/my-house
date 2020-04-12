@@ -314,20 +314,33 @@ body {
     width: 164px;
     overflow: hidden;
 }
+/* play/pause buttons */
+.play-pause {
+    position: absolute;
+    z-index: 1;
+    top: 70%;
+}
 
+.play {
+    left: 30%;
+}
+
+.pause {
+    left: 60%;
+}
 /* arrows */
 .left-arrow {
     position: absolute;
     top: 40%;
     left: 10%;
-    z-index: 2;
+    z-index: 1;
 }
 
 .right-arrow {
     position: absolute;
     top: 40%;
     right: 10%;
-    z-index: 2;
+    z-index: 1;
 }
 
 /* slides */
@@ -336,36 +349,22 @@ body {
     overflow: hidden;
     width: 100%;
     transition: all 0.5s linear;
+    margin: 0;
 }
 
-/* .image-1 {
-    background-color: rgb(165, 144, 113);
-}
-
-.image-2 {
-    background-color:rgb(127, 197, 176);
-}
-
-.image-3 {
-    background-color: rgb(185, 88, 177);
-} */
-
+/* position of next slide on the right */
 .img-hidden {
     display: none;
 }
-
-/* position of slide when cllicking arrows */
-
-/* position of next slide on the right */
 .img-right {
     left: 100%;
-    z-index: 1;
+    z-index: 0;
     }
 
 /* position of active slide */
 .img-active {
     left: 0;
-    z-index: 1;
+    z-index: 0;
     }
  
 /* position of next slide on the left */
@@ -373,10 +372,6 @@ body {
     left: -100%;
     z-index: 0;
     }
-
-.img-index {
-    z-index: 1;
-}
 
 /* Ground */
 
