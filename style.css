@@ -311,56 +311,86 @@ body {
     position: absolute;
     height: 130px;
     width: 164px;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
+/* arrows */
+.left-arrow {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    z-index: 1;
+}
+
+.right-arrow {
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    z-index: 1;
+}
+
+/* slides */
 .slide {
     position: absolute;
-    margin: 0;
-
+    overflow: hidden;
+    width: 100%;
+    transition: all 1s linear;
 }
 
 .image-1 {
     border: blue 1px solid;
-
 }
 
 .image-2 {
     border: red 1px solid;
-
 }
 
 .image-3 {
     border:green 1px solid;
-
-}
-
-.img-exit {
-overflow: hidden;
-width: 100%;
-left: 0;
-transition: all 1s linear;
-}
-
-.img-enter {
-overflow: hidden;
-width: 100%;
-right: -100%;
-transition: all 1s linear;
 }
 
 .img-hidden {
     display: none;
 }
 
-.carousel:hover .img-enter {
-    right: 0%;
-    /* width: 100%; */
-}
+/* when cllicking left arrow test 1*/
 
-.carousel:hover .img-exit {
+.img-enter-left {
+    left: 100%;
+    }
+
+.img-exit-left {
+    left: 0;
+    }
+
+.carousel:hover .img-enter-left {
+    left: 0%;
+    }
+        
+.carousel:hover .img-exit-left {
     left: -100%;
-}
+    }
+
+/* when clicking right arrow test 1*/
+    
+.img-enter-right {
+    left: -100%;
+    transition: all 1s linear;
+    }
+
+.img-exit-right {
+    left: 0%;
+    transition: all 1s linear;
+    }
+    
+.carousel:hover .img-enter-right {
+    left: 0%;
+    }
+    
+.carousel:hover .img-exit-right {
+    left: 100%;
+    }
+
 /* Ground */
 
 .ground-line {

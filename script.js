@@ -26,3 +26,11 @@ sun.addEventListener("click", nightMode);
 
 // image carousel
 
+// const leftArrow = document.getElementsByClassName("left-arrow")[0];
+// const rightArrow = document.getElementsByClassName("rihgt-arrow")[0];
+
+// function slideLeft(event) {
+    
+// }
+
+// leftArrow.addEventListener("click", slideLeft);
