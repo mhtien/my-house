@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="160" height="120" viewBox="0 0 160 120">
   <g id="image-1" transform="translate(-992 -640)">
-    <rect id="image-1-2" data-name="image-1" width="160" height="120" transform="translate(992 640)" fill="#fdfeff"/>
-    <text id="_1" data-name="1" transform="translate(1035 674)" fill="#8a4141" font-size="20" font-family="ArialMT, Arial" letter-spacing="0.01em"><tspan x="35.938" y="18">1</tspan></text>
+    <rect id="image-1-2" data-name="image-1" width="160" height="120" transform="translate(992 640)" fill="#e2e6a0"/>
+    <text id="_1" data-name="1" transform="translate(1035 674)" fill="none" stroke="#504c4c" stroke-width="1" font-size="20" font-family="ArialMT, Arial" letter-spacing="0.01em"><tspan x="35.938" y="18">1</tspan></text>
   </g>
 </svg>

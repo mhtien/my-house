@@ -334,67 +334,45 @@ body {
     position: absolute;
     overflow: hidden;
     width: 100%;
-    transition: all 1s linear;
+    transition: all 0.5s linear;
 }
 
-.image-1 {
-    border: blue 1px solid;
+/* .image-1 {
+    background-color: rgb(165, 144, 113);
 }
 
 .image-2 {
-    border: red 1px solid;
+    background-color:rgb(127, 197, 176);
 }
 
 .image-3 {
-    border:green 1px solid;
-}
+    background-color: rgb(185, 88, 177);
+} */
 
 .img-hidden {
     display: none;
 }
 
-/* when cllicking left arrow test */
+/* position of slide when cllicking arrows */
 
-/* position of next slide */
-.img-enter-left {
+/* position of next slide on the right */
+.img-right {
     left: 100%;
     }
 
 /* position of active slide */
-.img-exit-left {
+.img-active {
     left: 0;
     }
-
-/* new position of next slide (now active slide) */
-.next-img-enter-left {
-    left: 0%;
-    }
  
-/* position of former active slide */
-.next-img-exit-left {
+/* position of next slide on the left */
+.img-left {
     left: -100%;
     }
 
-/* when clicking right arrow test */
-
-/* position of next slide */   
-.img-enter-right {
-    left: -100%;
-    }
-
-/* position of active slide */
-.img-exit-right {
-    left: 0%;
-    }
- /* new position of next slide (formerly active slide) */   
-.next-img-enter-right {
-    left: 0%;
-    }
-
-/* position of former active slide */    
-.next-img-exit-right {
-    left: 100%;
-    }
+.img-hidden {
+    display: none;
+}
 
 /* Ground */
 
