@@ -309,6 +309,7 @@ body {
 
 .carousel {
     position: absolute;
+    left: 150px;
     height: 130px;
     width: 164px;
     overflow: hidden;
@@ -319,14 +320,14 @@ body {
     position: absolute;
     top: 40%;
     left: 10%;
-    z-index: 1;
+    z-index: 2;
 }
 
 .right-arrow {
     position: absolute;
     top: 40%;
     right: 10%;
-    z-index: 1;
+    z-index: 2;
 }
 
 /* slides */
@@ -358,20 +359,23 @@ body {
 /* position of next slide on the right */
 .img-right {
     left: 100%;
+    z-index: 1;
     }
 
 /* position of active slide */
 .img-active {
     left: 0;
+    z-index: 1;
     }
  
 /* position of next slide on the left */
 .img-left {
     left: -100%;
+    z-index: 0;
     }
 
-.img-hidden {
-    display: none;
+.img-index {
+    z-index: 1;
 }
 
 /* Ground */
