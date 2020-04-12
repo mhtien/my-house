@@ -61,7 +61,7 @@ function slideRight(event) {
         slidesArray[i+3].classList.add("img-hidden");
         // cycling through frames
         slidesArray.push(slidesArray.shift())
-        console.log(slidesArray);
+    
 }
 
 function slideLeft(event) {
@@ -79,7 +79,7 @@ function slideLeft(event) {
         slidesArray[carouselLength-2].classList.remove("img-hidden");
 
         // for all other frames
-        slidesArray[carouselLength-3].classList.remove("img-right")
+        slidesArray[carouselLength-3].classList.remove("img-right");
         slidesArray[carouselLength-3].classList.add("img-hidden");
         // cycling through frames
         slidesArray.unshift(slidesArray.pop())
@@ -88,10 +88,15 @@ function slideLeft(event) {
 
 function playSlides() {
     play = setInterval(slideRight, 2000);
+    playButton.classList.add("play-hide");
+    pauseButton.classList.remove("play-hide");
 }
 
+
 function pauseSlides() {
-    clearTimeout(play);
+    clearInterval(play);
+    playButton.classList.remove("play-hide");
+    pauseButton.classList.add("play-hide");
 }
 
 rightArrow.addEventListener("click", slideRight);

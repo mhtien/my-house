@@ -319,15 +319,13 @@ body {
     position: absolute;
     z-index: 1;
     top: 70%;
+    left: 45%;
 }
 
-.play {
-    left: 30%;
+.play-hide {
+    display: none;
 }
 
-.pause {
-    left: 60%;
-}
 /* arrows */
 .left-arrow {
     position: absolute;
