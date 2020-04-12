@@ -353,41 +353,46 @@ body {
     display: none;
 }
 
-/* when cllicking left arrow test 1*/
+/* when cllicking left arrow test */
 
+/* position of next slide */
 .img-enter-left {
     left: 100%;
     }
 
+/* position of active slide */
 .img-exit-left {
     left: 0;
     }
 
-.carousel:hover .img-enter-left {
+/* new position of next slide (now active slide) */
+.next-img-enter-left {
     left: 0%;
     }
-        
-.carousel:hover .img-exit-left {
+ 
+/* position of former active slide */
+.next-img-exit-left {
     left: -100%;
     }
 
-/* when clicking right arrow test 1*/
-    
+/* when clicking right arrow test */
+
+/* position of next slide */   
 .img-enter-right {
     left: -100%;
-    transition: all 1s linear;
     }
 
+/* position of active slide */
 .img-exit-right {
     left: 0%;
-    transition: all 1s linear;
     }
-    
-.carousel:hover .img-enter-right {
+ /* new position of next slide (formerly active slide) */   
+.next-img-enter-right {
     left: 0%;
     }
-    
-.carousel:hover .img-exit-right {
+
+/* position of former active slide */    
+.next-img-exit-right {
     left: 100%;
     }
 
