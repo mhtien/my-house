@@ -100,15 +100,18 @@ function pauseSlides() {
     pauseButton.classList.add("play-hide");
 }
 
-
-
 // event listener for clicking left and right
 rightArrow.addEventListener("click", slideRight);
 leftArrow.addEventListener("click", slideLeft);
 
 // event listener for left and right arrow keys
-activeImage.addEventListener("keypress", function(event) {
-    console.log(event);
+document.addEventListener("keydown", function(event) {
+    if (event.which === 39) {
+        return slideRight();
+    }
+    if (event.which === 37) {
+        return slideLeft();
+    }
 });
 
 // event listener for clicking play and pause
