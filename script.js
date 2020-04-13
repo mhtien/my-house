@@ -25,7 +25,8 @@ sun.addEventListener("click", nightMode);
 
 
 // image carousel
-
+const imageCarousel = document.getElementById("image-carousel");
+const activeImage = document.getElementsByClassName("img-active")[0];
 const leftArrow = document.getElementsByClassName("left-arrow")[0];
 const rightArrow = document.getElementsByClassName("right-arrow")[0];
 
@@ -99,8 +100,17 @@ function pauseSlides() {
     pauseButton.classList.add("play-hide");
 }
 
+
+
+// event listener for clicking left and right
 rightArrow.addEventListener("click", slideRight);
 leftArrow.addEventListener("click", slideLeft);
 
+// event listener for left and right arrow keys
+activeImage.addEventListener("keypress", function(event) {
+    console.log(event);
+});
+
+// event listener for clicking play and pause
 playButton.addEventListener("click", playSlides);
 pauseButton.addEventListener("click", pauseSlides);
