@@ -116,7 +116,7 @@ rightArrow.addEventListener("click", slideRight);
 leftArrow.addEventListener("click", slideLeft);
 
 // event listener for left and right arrow keys
-document.addEventListener("keydown", keyPress);
+document.addEventListener("keyup", keyPress);
 
 // event listener for clicking play and pause
 playButton.addEventListener("click", playSlides);
