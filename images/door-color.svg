@@ -1,10 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="167" height="240" viewBox="0 0 167 240">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="167" height="240" viewBox="0 0 167 240">
+  <defs>
+    <filter id="Ellipse_3" x="80.5" y="126.5" width="14.5" height="19" filterUnits="userSpaceOnUse">
+      <feOffset dx="-2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Rectangle_14" x="35.5" y="142.5" width="44.5" height="19" filterUnits="userSpaceOnUse">
+      <feOffset dx="-2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_3" x="35.229" y="51.921" width="41.78" height="61.579" filterUnits="userSpaceOnUse">
+      <feOffset dx="-2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="0.5" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
   <g id="door-color" transform="translate(-776 -632)">
     <rect id="Rectangle_2" data-name="Rectangle 2" width="167" height="240" transform="translate(776 632)" fill="#fff"/>
     <path id="Path_10" data-name="Path 10" d="M0,0H152V232H0Z" transform="translate(784 640)" fill="#dedcdc"/>
-    <path id="Path_11" data-name="Path 11" d="M0,0H136V224H0Z" transform="translate(792 648)" fill="#f4f4f4"/>
-    <circle id="Ellipse_3" data-name="Ellipse 3" cx="8" cy="8" r="8" transform="translate(896 760)" fill="#e6d1a8"/>
-    <rect id="Rectangle_14" data-name="Rectangle 14" width="56" height="16" transform="translate(832 776)" fill="#e6e1d5"/>
-    <path id="Path_3" data-name="Path 3" d="M2846,688s-21.372-34.115-32-24,32,56,32,56,26.4-17,32-48S2846,688,2846,688Z" transform="translate(-1982.569 24)" fill="#e6e1d5"/>
+    <path id="Path_27" data-name="Path 27" d="M0,0H52.478V224H0Z" transform="translate(875.522 648)" fill="#b7b7b7"/>
+    <path id="Path_11" data-name="Path 11" d="M0,0H83.522V224H0Z" transform="translate(792 648)" fill="#f4f4f4"/>
+    <g transform="matrix(1, 0, 0, 1, 776, 632)" filter="url(#Ellipse_3)">
+      <ellipse id="Ellipse_3-2" data-name="Ellipse 3" cx="5.5" cy="8" rx="5.5" ry="8" transform="translate(84 128)" fill="#e6d1a8"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 776, 632)" filter="url(#Rectangle_14)">
+      <rect id="Rectangle_14-2" data-name="Rectangle 14" width="41" height="16" transform="translate(39 144)" fill="#e6e1d5"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 776, 632)" filter="url(#Path_3)">
+      <path id="Path_3-2" data-name="Path 3" d="M2831.765,688s-12.345-34.115-18.484-24,18.484,56,18.484,56,15.247-17,18.484-48S2831.765,688,2831.765,688Z" transform="translate(-2773.57 -608)" fill="#e6e1d5"/>
+    </g>
+    <path id="Path_28" data-name="Path 28" d="M5.522,0H0V224H5.522Z" transform="translate(792 648)" fill="#b7b7b7" opacity="0.5"/>
+    <path id="Path_29" data-name="Path 29" d="M78.522,0H0L78.522,126.571Z" transform="translate(797 648)" fill="#b7b7b7" opacity="0.3"/>
   </g>
 </svg>

@@ -1,6 +1,6 @@
 /* helping with containers  */
 * {
-    /* border: solid 1px green; */
+    border: solid 1px green;
 }
 
 /* removing the scroll bar along x-axis */
@@ -10,6 +10,22 @@ body {
 
  h1 {
      margin: 1rem;
+ }
+
+ p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #B7B7B7;
+    font-size: small;
+ }
+
+ /* format for all text */
+ .bubble {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    width: 100px;
+    padding: 5px;
+    transition: opacity 1s linear;
  }
 
  /* background */
@@ -149,21 +165,8 @@ body {
 
 .house:hover .gf-elements {
     background-color: #B7B7B7;
+
 }
-
-
-/* house background */
-.house-wrapper {
-    /* width: 77.5%;
-    height: 69%; */
-    /* bottom: 0%;
-    left: 50%; */
-    /* background-color: orange; */
-    /* transform: translate(-50%, 0%); */
-}
-
-/* Text for when door is hovered over */
-
 
 
 /* Circular Winodw */
@@ -196,9 +199,18 @@ body {
 /* Letter box */
 .letterbox {
     position: absolute;
-    bottom: 0;
-    width: 80px;
+    bottom: -5px;
     left: 0;
+}
+
+.letterbox .letterbox-color {
+    display: none;
+    position: absolute;
+    left: 0;
+}
+
+.letterbox:hover .letterbox-color {
+    display: inline;
 }
 
 .gf-elements {
@@ -206,7 +218,7 @@ body {
     margin: 0 11.3%;
     background-color: #FFFFFF;
     /* font size is to keep image algned with house */
-    font-size: 0;
+    /* font-size: 0; */
 }
 
 
@@ -238,13 +250,21 @@ body {
     display: none;
     position: absolute;
     left: 0%;
+    bottom: 1.5%;
+}
+
+.me-char {
+    position: absolute;
+    display: none;
+    right: -100px;
+    bottom: 1.5%;
 }
 
 @media (min-width: 768px) {
     .door .door-color {
         display: none;
         position: absolute;
-        bottom: 0%;
+        bottom: 1.5%;
         left: 0%;
     }
 }
@@ -254,14 +274,29 @@ body {
 
 }
 
+.door:hover .me-char {
+    display: inline;
+    right: -15px;
+}
+
 /* door at night time */
 .door-night {
     position: absolute;
     left: 0%;
-    opacity: 1;
     transition: opacity 2s ease-in-out;
  }
 
+ /* text */
+
+ .door-text {
+    top:0;
+    left: -100px;
+    opacity: 0;
+}
+
+.door:hover .door-text {
+    opacity: 1;
+}
 
 
 /* Rectangular Window */
@@ -420,4 +455,6 @@ body {
 .hide-element {
     opacity: 0;
 }
+
+
 
