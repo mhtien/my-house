@@ -1,6 +1,6 @@
 /* helping with containers  */
 * {
-    border: solid 1px green;
+    /* border: solid 1px green; */
 }
 
 /* removing the scroll bar along x-axis */
@@ -11,6 +11,8 @@ body {
  h1 {
      margin: 1rem;
  }
+
+ /* background */
 
  .background-sky {
     position: absolute;
@@ -28,10 +30,9 @@ body {
     z-index: -1;
     opacity: 1;
     transition: opacity 2s ease-in-out;
+    overflow: hidden;
  }
 
-
- /* positioning */
 
 /* body of content position */
 .main-body {
@@ -58,11 +59,15 @@ body {
 .instruction {
     font-size: 1rem;
 }
-/* sun */
+
+/* sun and moon */
 .sun {
     position: absolute;
     left: 10%;
     z-index: 1;
+}
+
+.sun-vis {
     transition: opacity 2s ease-in-out;
 }
 
@@ -100,7 +105,6 @@ body {
     position: absolute;
     top: 0%;
     left: 0%;
-    background-color: blueviolet;
     display: inline-block;
     transform: translate(0%, 0%);
     z-index: 2;
@@ -110,7 +114,6 @@ body {
     position: absolute;
     top: 0%;
     left: 50%;
-    background-color:pink;
     display: inline-block;
     transform: translate(-50%, 20%);
     z-index: 1;
@@ -120,7 +123,6 @@ body {
     position: absolute;
     top: 0%;
     right: 0%;
-    background-color:orange;
     display: inline-block;
     transform: translate(0%, 0%);
 }
@@ -266,7 +268,7 @@ body {
 .window {
     position: relative;
     margin: auto;
-    padding-top: 20px;
+    top: 19.5%;
     display: table;
 }
 
@@ -274,14 +276,14 @@ body {
     .window {
         position: absolute;
         right: 8%;
-        top: 13.5%;
+        top: 19.5%;
         display: inline-block;
     }
 }
 
 .window-night {
     position: absolute;
-    top: 20px;
+    top: 0%;
     right: 0%;
     transition: opacity 2s ease-in-out;
 }
@@ -290,15 +292,14 @@ body {
     display: none;
     position: absolute;
     left: 0%;
-    top: 20px;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
 .window .window-color {
     display: none;
     position: absolute;
     }
-}
+} */
 
 .window:hover .window-color {
     display: inline;
@@ -309,10 +310,14 @@ body {
 
 .carousel {
     position: absolute;
-    left: 150px;
+    top: 8px;
+    left:14px;
     height: 130px;
+    margin: auto;
+
     width: 164px;
     overflow: hidden;
+    z-index: 1;
 }
 /* play/pause buttons */
 .play-pause {
@@ -321,6 +326,7 @@ body {
     top: 70%;
     left: 45%;
 }
+
 
 .play-hide {
     display: none;
@@ -406,11 +412,12 @@ body {
 .hidden .background-night,
 .hidden .circle-night,
 .hidden .window-night,
-.hidden .door-night {
+.hidden .door-night, 
+.hidden .moon {
     opacity: 0;
 }
 
-.hide-sun {
+.hide-element {
     opacity: 0;
 }
 

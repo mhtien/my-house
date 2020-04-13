@@ -10,13 +10,11 @@ function nightMode(event) {
 
     if (hidden == undefined) {
         bodyClass.classList.add("hidden");
-        sunVis.classList.remove("hide-sun");
-        moonVis.classList.add("hide-sun");
+        sunVis.classList.remove("hide-element");
 
     } else {
         bodyClass.classList.remove("hidden");
-        sunVis.classList.add("hide-sun");
-        moonVis.classList.remove("hide-sun");
+        sunVis.classList.add("hide-element");
     }
 
 }
@@ -25,8 +23,6 @@ sun.addEventListener("click", nightMode);
 
 
 // image carousel
-const imageCarousel = document.getElementById("image-carousel");
-const activeImage = document.getElementsByClassName("img-active")[0];
 const leftArrow = document.getElementsByClassName("left-arrow")[0];
 const rightArrow = document.getElementsByClassName("right-arrow")[0];
 
