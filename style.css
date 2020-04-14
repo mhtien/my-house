@@ -1,6 +1,6 @@
 /* helping with containers  */
 * {
-    border: solid 1px green;
+    /* border: solid 1px green; */
 }
 
 /* removing the scroll bar along x-axis */
@@ -196,22 +196,8 @@ body {
 }
 
 
-/* Letter box */
-.letterbox {
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-}
 
-.letterbox .letterbox-color {
-    display: none;
-    position: absolute;
-    left: 0;
-}
-
-.letterbox:hover .letterbox-color {
-    display: inline;
-}
+/* Ground floor elements */
 
 .gf-elements {
     max-width: 100%;
@@ -286,8 +272,7 @@ body {
     transition: opacity 2s ease-in-out;
  }
 
- /* text */
-
+ /* text position */
  .door-text {
     top:0;
     left: -100px;
@@ -340,6 +325,15 @@ body {
     display: inline;
 }
 
+.window:hover .window-text {
+    opacity: 1;
+}
+
+.window-text {
+    right: -120px;
+    top: 0px;
+    opacity: 0;
+}
 
 /* image carousel */
 
@@ -354,12 +348,19 @@ body {
     overflow: hidden;
     z-index: 1;
 }
+
+.button {
+    border: none;
+    padding: 0;
+    background: none;
+}
+
 /* play/pause buttons */
 .play-pause {
     position: absolute;
     z-index: 1;
-    top: 70%;
-    left: 45%;
+    bottom:10%;
+    left: 50%;
 }
 
 
@@ -443,6 +444,37 @@ body {
     opacity: 1;
     
 }
+
+
+/* Letter box */
+.letterbox {
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.letterbox .letterbox-color {
+    display: none;
+    position: absolute;
+    left: 0;
+}
+
+.letterbox:hover .letterbox-color {
+    display: inline;
+}
+
+.letterbox-text {
+    bottom: 0;
+    left: -100px;
+    opacity: 0;
+}
+
+.letterbox:hover .letterbox-text {
+    opacity: 1;
+}
+
+
+/* hidden elements */
 
 .hidden .background-night,
 .hidden .circle-night,
