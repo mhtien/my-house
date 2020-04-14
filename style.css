@@ -325,6 +325,10 @@ body {
     display: inline;
 }
 
+.window:hover .carousel {
+    display: inline;
+}
+
 .window:hover .window-text {
     opacity: 1;
 }
@@ -338,13 +342,14 @@ body {
 /* image carousel */
 
 .carousel {
+    display:none;
     position: absolute;
     top: 8px;
-    left:14px;
-    height: 130px;
+    left:16px;
+    height: 120px;
     margin: auto;
 
-    width: 164px;
+    width: 160px;
     overflow: hidden;
     z-index: 1;
 }
@@ -358,7 +363,7 @@ body {
 /* play/pause buttons */
 .play-pause {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     bottom:10%;
     left: 50%;
 }
@@ -373,14 +378,14 @@ body {
     position: absolute;
     top: 40%;
     left: 10%;
-    z-index: 1;
+    z-index: 2;
 }
 
 .right-arrow {
     position: absolute;
     top: 40%;
     right: 10%;
-    z-index: 1;
+    z-index: 2;
 }
 
 /* slides */
@@ -398,19 +403,17 @@ body {
 }
 .img-right {
     left: 100%;
-    z-index: 0;
     }
 
 /* position of active slide */
 .img-active {
     left: 0;
-    z-index: 0;
+    z-index: 1;
     }
  
 /* position of next slide on the left */
 .img-left {
     left: -100%;
-    z-index: 0;
     }
 
 /* Ground */

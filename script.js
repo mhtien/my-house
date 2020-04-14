@@ -26,18 +26,22 @@ sun.addEventListener("click", nightMode);
 const leftArrow = document.getElementsByClassName("left-arrow")[0];
 const rightArrow = document.getElementsByClassName("right-arrow")[0];
 
-const imageOne = document.getElementsByClassName("image-1")[0];
-const imageTwo = document.getElementsByClassName("image-2")[0];
-const imageThree = document.getElementsByClassName("image-3")[0];
-const imageFour = document.getElementsByClassName("image-4")[0];
-const imageFive = document.getElementsByClassName("image-5")[0];
-
 const playButton = document.getElementsByClassName("play")[0];
 const pauseButton = document.getElementsByClassName("pause")[0];
 
-let slidesArray = [imageOne, imageTwo, imageThree, imageFour, imageFive];
+// getting the child elements of the container
+let childrenArray = document.getElementById("carousel-slides").children;
+
+//copy of the child elements for manipulation
+let slidesArray = [...childrenArray];
+
 let carouselLength = slidesArray.length;
 let i = 0;
+
+// Adding classes initially
+slidesArray[i].classList.add("img-active");
+slidesArray[i+1].classList.add("img-right");
+slidesArray[carouselLength-1].classList.add("img-left");
 
 function slideRight(event) {
 
