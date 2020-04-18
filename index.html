@@ -15,52 +15,66 @@
     <title>MHT here!</title>
 </head>
 
-<body class="hidden">
+<body id="body" class="hide-night">
     <img class="background-sky" src="images\background.svg" alt="background-sky">
     <img class="background-night" src="images\background-night.svg" alt="background-night">
     <div class="main-body">
-        <h1 class="welcome font-style">Welcome to my Home!</h1>
-        <h2 class="instruction font-style">Please do browse around by hovering over elements</h2>
-        <div class="sun">
-            <div class="sun-vis">
-                <img class="sun-white " src="images\sun-white.svg" alt="sun-white">
-                <img class="sun-color" src="images\sun-color.svg" alt="sun-color">
-            </div>
-            <div class="moon-vis">
-                <img class="moon" src="images\moon.svg" alt="moon">
-
-            </div>
-            <!-- <img class="moon" src="images\moon.svg" alt="moon"> -->
+        <div class="title">
+            <h1 class="welcome font-style">Welcome to my Home!</h1>
+            <h2 class="instruction font-style">Please do browse around by hovering over elements</h2>
         </div>
-        <div class="smoke-white">
-            <div class="smoke1">
-                <a href="https://www.freecodecamp.org/mhtien" target="_blank" alt="freecodecamp">
-                    <img src="images\smoke-white.svg" alt="smoke-white">
-                </a>
-            </div>
-
-            <div class="smoke2">
-                <a href="https://github.com/mhtien/my-house" target="_blank" alt="github website repo">
-                    <img src="images\smoke-white.svg" alt="smoke-white">
-                </a>
-            </div>
-            <div class="smoke3">
-                <a href="https://www.codewars.com/users/mhtien" target="_blank" alt="codewars">
-                    <img src="images\smoke-white.svg" alt="smoke-white">
-                </a>
-            </div>
-        </div>
-        <div class="house h-width">
-            <div class="house-wrapper">
-                <div class="circle">
-                    <img src="images\circularwindow-white.svg" alt="circle-window-white">
-                    <img class="circle-night" src="images\circularwindow-night.svg" alt="circle-window-night">
-                    <img class="circle-color" src="images\circularwindow-color.svg" alt="circle-window-color">
+        <div class="sky-line">
+            <div class="sun-moon">
+                <div class="sun-vis">
+                    <img class="sun-white sun-position" src="images\sun-white.svg" alt="sun-white">
+                    <img class="sun-color sun-position" src="images\sun-color.svg" alt="sun-color">
                 </div>
-                <div class="gf-elements">
+                <img class="moon sun-position" src="images\moon.svg" alt="moon">
+                <!-- <img class="moon" src="images\moon.svg" alt="moon"> -->
+            </div>
+            <div class="smoke">
+                <div class="smoke1 smoke-hover">
+                    <a href="https://www.freecodecamp.org/mhtien" target="_blank" alt="freecodecamp">
+                        <img class="links-logo" src="images\freeCodeCamp-logo.svg" alt="freeCodeCamp logo">
+                        <img class="smoke-white" src="images\smoke-white.svg" alt="smoke-white">
+                        
+                    </a>
+                </div>
 
-                    <div class="window">
-                        <div id="image-carousel" class="carousel">
+                <div class="smoke2 smoke-hover">
+                    <a href="https://github.com/mhtien/my-house" target="_blank" alt="github website repo">
+                        <img class="links-logo" src="images\github-logo.svg" alt="github logo">
+                        <img class="smoke-white" src="images\smoke-white.svg" alt="smoke-white">
+                    </a>
+                </div>
+                <div class="smoke3 smoke-hover">
+                    <a href="https://www.codewars.com/users/mhtien" target="_blank" alt="codewars">
+                        <img class="links-logo" src="images\CodeWars.png" alt="codewars logo">
+                        <img class="smoke-white" src="images\smoke-white.svg" alt="smoke-white">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="house house-hover h-width">
+            <!-- <div class="window-wrapper"> -->
+            <div class="circle">
+                <img class="circle-night center-position" src="images\circularwindow-night.svg"
+                    alt="circle-window-night">
+                <div class="circle-hover">
+                    <img class="circle-day center-position" src="images\circularwindow-white.svg"
+                        alt="circle-window-white">
+                    <img class="circle-color center-position" src="images\circularwindow-color.svg"
+                        alt="circle-window-color">
+                </div>
+
+            </div>
+            <div class="gf-elements">
+
+                <div class="window">
+                    <img class="window-night center-position" src="images\rectangularwindow-night.svg"
+                        alt="window-night">
+                    <div class="window-hover">
+                        <div id="image-carousel" class="carousel center-position">
                             <!-- play/pause -->
                             <div class="play play-pause">
                                 <button class="button">
@@ -105,27 +119,33 @@
                                 </div>
                             </div>
                         </div>
-                        <img src="images\rectangularwindow-white.svg" alt="window-white">
-                        <img class="window-night" src="images\rectangularwindow-night.svg" alt="window-night">
-                        <img class="window-color" src="images\rectangularwindow-color.svg" alt="window-color">
+                        <img class="window-color center-position" src="images\rectangularwindow-color.svg"
+                            alt="window-color">
+                        <img class="window-day center-position" src="images\rectangularwindow-white.svg"
+                            alt="window-white">
                         <p class="window-text bubble">These are just a few of my hobbies</p>
                     </div>
+                </div>
 
-                    <div class="door">
-                        <img src="images\door-white.svg" alt="door-white">
-                        <img class="door-night" src="images\door-night.svg" alt="door-night">
-                        <img class="door-color" src="images\door-color.svg" alt="door-color">
+                <div class="door">
+                    <img class="door-night center-position" src="images\door-night.svg" alt="door-night">
+                    <div class="door-hover">
+                        <img class="door-day center-position" src="images\door-white.svg" alt="door-white">
+                        <img class="door-color center-position" src="images\door-color.svg" alt="door-color">
                         <img class="me-char" src="images\me-door.svg" alt="me-door">
                         <p class="door-text bubble">Hi! I'm My Hoa! Welcome to my Home</p>
                     </div>
-                </div>
-                <div class="letterbox">
-                    <img src="images\letterbox.svg" alt="letterbox">
-                    <img class="letterbox-color" src="images\letterbox-color.svg" alt="letterbox-color">
-                    <p class="letterbox-text bubble">Sorry I need to upgrade my contact method</p>
-                </div>
 
+
+                </div>
             </div>
+            <div class="letterbox">
+                <img src="images\letterbox.svg" alt="letterbox">
+                <img class="letterbox-color" src="images\letterbox-color.svg" alt="letterbox-color">
+                <p class="letterbox-text bubble">Sorry I need to upgrade my contact method</p>
+            </div>
+
+            <!-- </div> -->
         </div>
         <hr class="ground-line h-width">
         <div class="ground h-width">

@@ -1,20 +1,28 @@
-// night time sky 
-const sun = document.getElementsByClassName("sun")[0];
+//  sky transition
+const sun = document.getElementsByClassName("sun-moon")[0];
 
 function nightMode(event) {
-    const hidden = document.body.classList[0];
+    const hiddenNight = document.body.classList;
     const bodyClass = document.body;
     const sunVis = document.getElementsByClassName("sun-vis")[0];
-    const moonVis = document.getElementsByClassName("moon-vis")[0];
+    const house = document.getElementsByClassName("house")[0];
+    const windowDay = document.getElementsByClassName("window-hover")[0];
+    const windowColor = document.getElementsByClassName("window-hover")[0];
 
 
-    if (hidden == undefined) {
-        bodyClass.classList.add("hidden");
+    if (hiddenNight != "hide-night") {
+        bodyClass.classList.add("hide-night");
+        bodyClass.classList.remove("hide-day");
         sunVis.classList.remove("hide-element");
+        house.classList.add("house-hover");
+    
 
     } else {
-        bodyClass.classList.remove("hidden");
+        bodyClass.classList.remove("hide-night");
+        bodyClass.classList.add("hide-day");
         sunVis.classList.add("hide-element");
+        house.classList.remove("house-hover");
+    
     }
 
 }

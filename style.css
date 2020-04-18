@@ -6,6 +6,7 @@
 /* removing the scroll bar along x-axis */
 body {
     overflow-x: hidden;
+    margin: 0;
 }
 
  h1 {
@@ -32,21 +33,22 @@ body {
 
  .background-sky {
     position: absolute;
-    top: 0;
-    left: 0;
+    margin: auto;
+    overflow: hidden;
+    height: 100vh;
     /* for night sky to appear*/
     z-index: -1; 
  }
 
  .background-night {
     position: absolute;
-    top: 0;
-    left: 0;
+    margin: auto;
     /* for h1 class to appear*/
     z-index: -1;
     opacity: 1;
     transition: opacity 2s ease-in-out;
     overflow: hidden;
+    height: 100vh;
  }
 
 
@@ -67,103 +69,132 @@ body {
 
 .welcome {
     display: inline;
-    font-size: 3rem;
+    font-size: 2rem;
     /* underline */
     border-bottom:  white solid 2px;
 }
 
 .instruction {
-    font-size: 1rem;
+    font-size: 0.8rem;
+}
+
+
+/* Sky line */
+.sky-line {
+    display: block;
+    /* Set area for clouds and sun */
+    height: 150px;
 }
 
 /* sun and moon */
-.sun {
+.sun-moon {
     position: absolute;
+    height: 118px;
+    width: 118px;
+    top: 13%;
     left: 10%;
     z-index: 1;
 }
 
-.sun-vis {
-    transition: opacity 2s ease-in-out;
-}
-
-.moon {
+.sun-position {
     position: absolute;
     left: 0%;
     top: 0%;
-    z-index: 1;
+}
+
+.sun-vis,
+.moon {
     transition: opacity 2s ease-in-out;
 }
 
 
 /* sun hover */
-.sun .sun-color {
+.sun-moon .sun-color {
     display: none;
     position: absolute;
     left: 0%;
 }
 
-.sun:hover .sun-color {
+.sun-moon:hover .sun-color {
     display: inline;
 }
 
 
 /* chimney smoke */
+.smoke {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.smoke-hover {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 107px;
+    z-index: 1;
+}
 .smoke-white {
-    display: inline;
-    position: absolute;
-    right: 10%;
-    width: 400px;
-    background-color: grey;
+    /* position: absolute; */
 }
 
 .smoke1 {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    display: inline-block;
-    transform: translate(0%, 0%);
-    z-index: 2;
+    display: block;
+    margin-right: 10%;
 }
 
 .smoke2 {
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    display: inline-block;
-    transform: translate(-50%, 20%);
-    z-index: 1;
+    margin-right: 20%;
 }
 
 .smoke3 {
+    margin-right: 10%;
+}
+
+
+.links-logo {
     position: absolute;
-    top: 0%;
-    right: 0%;
-    display: inline-block;
-    transform: translate(0%, 0%);
+    height: 30px;
+    bottom: 16px;
+    left: 50%;
+    transform: translate(-50%,0);
+    opacity: 0.3;
+}
+
+.smoke-hover:hover .links-logo {
+    opacity: 0.8;
 }
 
 /* House elements container */
 
+/* width of house container */
 .h-width {
     width: 100%;
     max-width: 640px;
     margin: auto;
 }
 
+/* main background */
 .house {
     position: relative;
     background-image: url(images/housebase-white.svg);
     background-repeat: no-repeat;
     background-size: 100%;
+    /* Indent the windows below roof */
     padding-top: 200px;
+
 }
 
-.house:hover {
+/* To allow colour hover during day time sky */
+.house-hover {
+    background-image: url(images/housebase-white.svg);
+}
+
+.house-hover:hover {
     background-image: url(images/housebase-color.svg);
 }
 
-.house:hover .gf-elements {
+.house-hover:hover .gf-elements {
     background-color: #B7B7B7;
 
 }
@@ -171,28 +202,33 @@ body {
 
 /* Circular Winodw */
 .circle {
-    margin: auto;
+    margin: auto auto 30px auto;
     position: relative;
+    width: 167px;
+    height: 167px;
+}
+
+.circle-hover {
+    height: 100%;
+    transition: opacity 2s ease-in-out;
 }
 
 .circle-night {
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    top: 0;
     transition: opacity 2s ease-in-out;
 }
 
 /* hovered */
-.circle .circle-color {
+.circle-color {
     display: none;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
 }
 
-.circle:hover .circle-color {
+.circle-hover:hover .circle-color {
     display: inline;
+}
+
+.circle-hover:hover .circle-day {
+    display:none;
 }
 
 
@@ -200,9 +236,11 @@ body {
 /* Ground floor elements */
 
 .gf-elements {
+    display: block;
     max-width: 100%;
+    height: auto;
     margin: 0 11.3%;
-    background-color: #FFFFFF;
+    background-color: white;
     /* font size is to keep image algned with house */
     /* font-size: 0; */
 }
@@ -215,103 +253,50 @@ body {
     } 
 }
 
-/* Door  */
-.door {
-    position: relative;
-    margin: 30px auto -5px auto;
-    display: inline-block;
-}
-
-@media (min-width: 768px) {
-    .door {
-        position: absolute;
-        left: 8%;
-        /* bottom is to keep image algned with house */
-        bottom: 1.5%;
-    }
-}
-
-/* new image when door is hovered over */
-.door .door-color {
-    display: none;
-    position: absolute;
-    left: 0%;
-    bottom: 1.5%;
-}
-
-.me-char {
-    position: absolute;
-    display: none;
-    right: -100px;
-    bottom: 1.5%;
-}
-
-@media (min-width: 768px) {
-    .door .door-color {
-        display: none;
-        position: absolute;
-        bottom: 1.5%;
-        left: 0%;
-    }
-}
-
-.door:hover .door-color {
-    display: inline;
-
-}
-
-.door:hover .me-char {
-    display: inline;
-    right: -15px;
-}
-
-/* door at night time */
-.door-night {
-    position: absolute;
-    left: 0%;
-    transition: opacity 2s ease-in-out;
- }
-
- /* text position */
- .door-text {
-    top:0;
-    left: -100px;
-    opacity: 0;
-}
-
-.door:hover .door-text {
-    opacity: 1;
-}
-
-
 /* Rectangular Window */
+
+/* Outer div sets the position of the window in y axis */
 .window {
     position: relative;
-    margin: auto;
+    height: 147px;
+    width: 192px;
     top: 19.5%;
-    display: table;
+    display: block;
+    /* centered in parent div */
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .window {
         position: absolute;
         right: 8%;
         top: 19.5%;
         display: inline-block;
     }
+} */
+
+.window-hover {
+    height: 100%;
+    transition: opacity 2s ease-in-out;
+}
+/* Centre position sets all elements in the x axis */
+.center-position {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+ }
+
+.window-day {
 }
 
 .window-night {
-    position: absolute;
-    top: 0%;
-    right: 0%;
+    z-index: -1;
     transition: opacity 2s ease-in-out;
 }
 
-.window .window-color {
+.window-color {
     display: none;
-    position: absolute;
-    left: 0%;
 }
 
 /* @media (min-width: 768px) {
@@ -321,15 +306,19 @@ body {
     }
 } */
 
-.window:hover .window-color {
-    display: inline;
-}
-
 .window:hover .carousel {
     display: inline;
 }
 
-.window:hover .window-text {
+.window-hover:hover .window-color {
+    display: inline;
+}
+
+.window-hover:hover .window-day {
+    display: none;
+}
+
+.window-hover:hover .window-text {
     opacity: 1;
 }
 
@@ -343,15 +332,12 @@ body {
 
 .carousel {
     display:none;
-    position: absolute;
     top: 8px;
-    left:16px;
     height: 120px;
     margin: auto;
-
     width: 160px;
     overflow: hidden;
-    z-index: 1;
+    z-index: 2;
 }
 
 .button {
@@ -416,6 +402,94 @@ body {
     left: -100%;
     }
 
+
+/* Door  */
+.door {
+    position: relative;
+    margin: 30px auto auto auto;
+    width: 167px;
+    height: 240px;
+    display: block;    
+    /* test for sliding character */
+    /* overflow: hidden; */
+}
+
+/* @media (min-width: 768px) { */
+    /* .door { */
+        /* position: relative; */
+        /* left: 8%; */
+        /* bottom is to keep image algned with house */
+        /* bottom: 1.5%; */
+    /* } */
+/* } */
+
+/* new image when door is hovered over */
+.door-hover {
+    transition: opacity 2s ease-in-out;
+}
+
+.door-day {
+    display: inline;
+}
+
+.door-color {
+    display: none;
+}
+
+.me-char {
+    position: absolute;
+    display: none;
+    left:51px;
+    bottom: 0%;
+    /* test for sliding character */
+    /* opacity: 0;
+    transition: 0.5s linear;
+    left: 150px; */
+    
+}
+
+/* door at night time */
+.door-night {
+    transition: opacity 2s ease-in-out;
+    bottom: 0;
+}
+
+@media (min-width: 768px) {
+    /* .door-color { */
+        /* display: none; */
+        /* position: absolute; */
+        /* bottom: 1.5%; */
+        /* left: 0%; */
+    }
+}
+
+.door-hover:hover .door-day {
+    display: none;
+}
+
+.door-hover:hover .door-color {
+    display: inline;
+}
+
+.door-hover:hover .me-char {
+    display: inline-block;
+    /* test for sliding character */
+    /* opacity: 1;
+    transform: translate(-99px,0); */
+}
+
+
+ /* text position */
+ .door-text {
+    top:0;
+    left: -100px;
+    opacity: 0;
+}
+
+.door-hover:hover .door-text {
+    opacity: 1;
+} 
+
 /* Ground */
 
 .ground-line {
@@ -477,19 +551,22 @@ body {
 }
 
 
-/* hidden elements */
+/* hidden night time elements */
 
-.hidden .background-night,
-.hidden .circle-night,
-.hidden .window-night,
-.hidden .door-night, 
-.hidden .moon {
+.hide-night .background-night,
+.hide-night .circle-night,
+.hide-night .window-night,
+.hide-night .door-night, 
+.hide-night .moon {
+    opacity: 0;
+}
+
+.hide-day .door-hover,
+.hide-day .circle-hover,
+.hide-day .window-hover {
     opacity: 0;
 }
 
 .hide-element {
     opacity: 0;
 }
-
-
-
