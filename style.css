@@ -4,9 +4,13 @@
 }
 
 /* removing the scroll bar along x-axis */
-body {
+html, body {
     overflow-x: hidden;
+    height: 100%;
     margin: 0;
+    position: relative;
+    /* background-color: grey;
+     */
 }
 
  h1 {
@@ -33,9 +37,9 @@ body {
 
  .background-sky {
     position: absolute;
+    left: 0;
     margin: auto;
-    overflow: hidden;
-    height: 100vh;
+    /* height: 100vh; */
     /* for night sky to appear*/
     z-index: -1; 
  }
@@ -43,12 +47,12 @@ body {
  .background-night {
     position: absolute;
     margin: auto;
+    left: 0;
     /* for h1 class to appear*/
     z-index: -1;
     opacity: 1;
     transition: opacity 2s ease-in-out;
-    overflow: hidden;
-    height: 100vh;
+    /* height: 100vh; */
  }
 
 
@@ -56,6 +60,7 @@ body {
 .main-body {
     text-align: center;
     margin: auto;
+    overflow-x: hidden;
 }
 
 /* font styles */
@@ -135,7 +140,9 @@ body {
     z-index: 1;
 }
 .smoke-white {
-    /* position: absolute; */
+    transition: opacity 2s ease-in-out;
+    opacity: 0.5;
+    
 }
 
 .smoke1 {
@@ -153,6 +160,7 @@ body {
 
 
 .links-logo {
+    transition: opacity 2s ease-in-out;
     position: absolute;
     height: 30px;
     bottom: 16px;
@@ -267,14 +275,15 @@ body {
     transform: translate(-50%, 0%);
 }
 
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
     .window {
         position: absolute;
-        right: 8%;
-        top: 19.5%;
-        display: inline-block;
+        top: 20%;
+        display: inline;
+        transform: none;
+        left: 52%;
     }
-} */
+}
 
 .window-hover {
     height: 100%;
@@ -291,20 +300,13 @@ body {
 }
 
 .window-night {
-    z-index: -1;
+    z-index: 0;
     transition: opacity 2s ease-in-out;
 }
 
 .window-color {
     display: none;
 }
-
-/* @media (min-width: 768px) {
-.window .window-color {
-    display: none;
-    position: absolute;
-    }
-} */
 
 .window:hover .carousel {
     display: inline;
@@ -414,14 +416,14 @@ body {
     /* overflow: hidden; */
 }
 
-/* @media (min-width: 768px) { */
-    /* .door { */
-        /* position: relative; */
-        /* left: 8%; */
+@media (min-width: 768px) {
+    .door {
+        position: absolute;
+        left: 10%;
         /* bottom is to keep image algned with house */
-        /* bottom: 1.5%; */
-    /* } */
-/* } */
+        bottom: 0;
+    }
+}
 
 /* new image when door is hovered over */
 .door-hover {
@@ -569,4 +571,8 @@ body {
 
 .hide-element {
     opacity: 0;
+}
+
+.hide-night .smoke-white {
+    opacity: 1;
 }

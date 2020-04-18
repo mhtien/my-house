@@ -6,8 +6,6 @@ function nightMode(event) {
     const bodyClass = document.body;
     const sunVis = document.getElementsByClassName("sun-vis")[0];
     const house = document.getElementsByClassName("house")[0];
-    const windowDay = document.getElementsByClassName("window-hover")[0];
-    const windowColor = document.getElementsByClassName("window-hover")[0];
 
 
     if (hiddenNight != "hide-night") {
