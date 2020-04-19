@@ -1,4 +1,6 @@
-/* helping with containers  */
+/* The main CSS has been created for mobile/portable device viewing, eveything within Media query is for desktop viewing */
+
+/* helping with viewing containers  */
 * {
     /* border: solid 1px green; */
 }
@@ -9,9 +11,20 @@ html, body {
     height: 100%;
     margin: 0;
     position: relative;
-    /* background-color: grey;
-     */
 }
+
+body::-webkit-scrollbar {
+     width: 10px;
+}
+
+p::-webkit-scrollbar {
+    width: 10px;
+}
+
+p::-webkit-scrollbar-thumb {
+    color: blue;
+}
+
 
  h1 {
      margin: 1rem;
@@ -26,33 +39,50 @@ html, body {
  /* format for all text */
  .bubble {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    width: 100px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 5px solid rgba(222, 220, 220, 0.6);
+    width: 80px;
+    max-height: 80px;
+    overflow-x: hidden;
+    overflow-y: scroll;
     padding: 5px;
+    border-radius: 3px;
     transition: opacity 1s linear;
+    z-index: 1;
+ }
+
+ @media (min-width: 768px) {
+    .bubble { 
+        position: absolute;
+        width: 100px;
+        max-height: none;
+        padding: 5px;
+        border-radius: 3px;
+        transition: opacity 1s linear;
+        overflow: auto;
+    }
  }
 
  /* background */
-
- .background-sky {
+.bg-position {
     position: absolute;
     left: 0;
     margin: auto;
-    /* height: 100vh; */
-    /* for night sky to appear*/
+    height: 200%;
+   /* for h1 class to appear*/
     z-index: -1; 
- }
+}
 
- .background-night {
-    position: absolute;
-    margin: auto;
-    left: 0;
-    /* for h1 class to appear*/
-    z-index: -1;
-    opacity: 1;
+@media (min-width: 768px) {
+    .background-sky, .background-night {
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+ .background-sky, .background-night {
     transition: opacity 2s ease-in-out;
-    /* height: 100vh; */
+    overflow: hidden;
  }
 
 
@@ -60,7 +90,6 @@ html, body {
 .main-body {
     text-align: center;
     margin: auto;
-    overflow-x: hidden;
 }
 
 /* font styles */
@@ -74,7 +103,7 @@ html, body {
 
 .welcome {
     display: inline;
-    font-size: 2rem;
+    font-size: 1.5rem;
     /* underline */
     border-bottom:  white solid 2px;
 }
@@ -88,7 +117,7 @@ html, body {
 .sky-line {
     display: block;
     /* Set area for clouds and sun */
-    height: 150px;
+    height: 180px;
 }
 
 /* sun and moon */
@@ -96,18 +125,25 @@ html, body {
     position: absolute;
     height: 118px;
     width: 118px;
-    top: 13%;
-    left: 10%;
     z-index: 1;
 }
 
 .sun-position {
     position: absolute;
-    left: 0%;
-    top: 0%;
+    left: 30%;
+    top: 50%;
 }
 
-.sun-vis,
+@media (min-width: 768px) {
+    .sun-position {
+        left: 100%;
+    }
+}
+
+.sun-vis {
+    transition: opacity 2s ease-in-out;
+}
+
 .moon {
     transition: opacity 2s ease-in-out;
 }
@@ -117,7 +153,6 @@ html, body {
 .sun-moon .sun-color {
     display: none;
     position: absolute;
-    left: 0%;
 }
 
 .sun-moon:hover .sun-color {
@@ -145,22 +180,21 @@ html, body {
     
 }
 
-.smoke1 {
+.smoke1, .smoke3 {
     display: block;
-    margin-right: 10%;
+    margin-left: 65%;
+    margin-right: auto;
 }
 
 .smoke2 {
-    margin-right: 20%;
+    margin-left: 60%;
+    margin-right: auto;
 }
 
-.smoke3 {
-    margin-right: 10%;
-}
 
 
 .links-logo {
-    transition: opacity 2s ease-in-out;
+    /* transition: opacity 1s linear; */
     position: absolute;
     height: 30px;
     bottom: 16px;
@@ -239,6 +273,15 @@ html, body {
     display:none;
 }
 
+.circle-hover:hover .circle-text {
+    opacity: 1;
+}
+
+.circle-text {
+    position: absolute;
+    left: 170px;
+    opacity: 0;
+}
 
 
 /* Ground floor elements */
@@ -325,7 +368,7 @@ html, body {
 }
 
 .window-text {
-    right: -120px;
+    left: 190px;
     top: 0px;
     opacity: 0;
 }
@@ -484,8 +527,16 @@ html, body {
  /* text position */
  .door-text {
     top:0;
-    left: -100px;
+    left: 170px;
     opacity: 0;
+}
+
+@media (min-width: 768px) {
+    .door-text {
+        left:2%;
+        margin: auto;
+        top: 0px;
+    }
 }
 
 .door-hover:hover .door-text {
@@ -505,6 +556,7 @@ html, body {
     width: 100%;
     position: relative;
     margin: auto;
+    height: 100px;
 }
 
 .ground .foundation-white {
@@ -514,16 +566,39 @@ html, body {
     opacity: 0;
 }
 
-.ground>img {
+.foundation-white {
     max-width: 100%;
     transition: opacity 1s ease-in-out;
 }
 
 .ground:hover .foundation-white {
     opacity: 1;
-    
 }
 
+.ground-text {
+    position: absolute;
+    top: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin: 0px 50px;
+    border: 5px solid rgba(222, 220, 220, 0.80);
+    padding: 5px;
+    opacity: 0;
+    transition: opacity 1s linear;
+}
+
+@media (min-width: 768px) {
+    .ground-text {
+        width: 60%;
+        margin: auto;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+    }
+}
+
+.ground:hover .ground-text {
+    opacity: 1;
+}
 
 /* Letter box */
 .letterbox {
@@ -543,9 +618,14 @@ html, body {
 }
 
 .letterbox-text {
-    bottom: 0;
-    left: -100px;
+    top: -120px;
     opacity: 0;
+}
+
+@media (min-width: 768px) {
+    .letterbox-text {
+        top: -80px;
+    }
 }
 
 .letterbox:hover .letterbox-text {
