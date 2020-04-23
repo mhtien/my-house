@@ -1,5 +1,24 @@
 /* The main CSS has been created for mobile/portable device viewing, eveything within Media query is for desktop viewing */
 
+/* Contents
+1 Main Elements
+2 Fonts & Text Boxes
+3 Background Images
+
+Structure of website - top to bottom
+4 Sky line - Sun, Moon, and Smoke Clouds
+5 House Container
+6 Circular Window
+7 Ground Floor Elements
+7a Window & Image Carousel
+7b Door
+8 Ground & Foundations
+9 Letter box
+10. Main hidden elements for Day/Night transition
+
+*/
+
+
 /* helping with viewing containers  */
 * {
     /* border: solid 1px green; */
@@ -13,31 +32,40 @@ html, body {
     position: relative;
 }
 
-body::-webkit-scrollbar {
-     width: 10px;
+
+/* Scroll not fully resolved */
+@media (min-width: 768px) {
+    p::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    p::-webkit-scrollbar-thumb {
+        color: blue;
+    }
 }
 
-p::-webkit-scrollbar {
-    width: 10px;
-}
 
-p::-webkit-scrollbar-thumb {
-    color: blue;
-}
-
-
- h1 {
-     margin: 1rem;
- }
-
+/* Paragraph style */
  p {
     font-family: Arial, Helvetica, sans-serif;
-    color: #B7B7B7;
+    color: #2D475D;
     font-size: small;
  }
 
- /* format for all text */
- .bubble {
+ /* format for all text boxes */
+ .text-box {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 5px solid rgba(222, 220, 220, 0.6);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 5px;
+    border-radius: 3px;
+    transition: opacity 1s linear;
+    z-index: 1;
+ }
+
+ /* .text-box {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.6);
     border: 5px solid rgba(222, 220, 220, 0.6);
@@ -49,10 +77,10 @@ p::-webkit-scrollbar-thumb {
     border-radius: 3px;
     transition: opacity 1s linear;
     z-index: 1;
- }
+ } */
 
  @media (min-width: 768px) {
-    .bubble { 
+    .text-box { 
         position: absolute;
         width: 100px;
         max-height: none;
@@ -62,6 +90,28 @@ p::-webkit-scrollbar-thumb {
         overflow: auto;
     }
  }
+
+ /* font style for h1 and h2 */
+.font-style {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #2D506D;
+    text-transform: uppercase;
+}
+
+/* Header text */
+.welcome {
+    display: inline;
+    font-size: 1.5rem;
+    /* underline */
+    border-bottom:  #2D506D solid 2px;
+}
+
+/* Sub-header text */
+.instruction {
+    font-size: 0.8rem;
+    margin: 10px 20px;
+}
+
 
  /* background */
 .bg-position {
@@ -91,27 +141,6 @@ p::-webkit-scrollbar-thumb {
     text-align: center;
     margin: auto;
 }
-
-/* font styles */
-
-.font-style {
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    text-transform: uppercase;
-    display: block;
-}
-
-.welcome {
-    display: inline;
-    font-size: 1.5rem;
-    /* underline */
-    border-bottom:  white solid 2px;
-}
-
-.instruction {
-    font-size: 0.8rem;
-}
-
 
 /* Sky line */
 .sky-line {
@@ -192,7 +221,6 @@ p::-webkit-scrollbar-thumb {
 }
 
 
-
 .links-logo {
     /* transition: opacity 1s linear; */
     position: absolute;
@@ -211,10 +239,12 @@ p::-webkit-scrollbar-thumb {
 
 /* width of house container */
 .h-width {
-    width: 100%;
+    width: 90%;
+    min-width: 375px;
     max-width: 640px;
     margin: auto;
 }
+
 
 /* main background */
 .house {
@@ -255,6 +285,12 @@ p::-webkit-scrollbar-thumb {
     transition: opacity 2s ease-in-out;
 }
 
+.circle-night-container {
+    height: 100%;
+    transition: opacity 2s ease-in-out;
+    z-index: 1;
+}
+
 .circle-night {
     top: 0;
     transition: opacity 2s ease-in-out;
@@ -279,8 +315,14 @@ p::-webkit-scrollbar-thumb {
 
 .circle-text {
     position: absolute;
+    display: inline;
     left: 170px;
     opacity: 0;
+}
+
+.circle:hover .night-text {
+    transition: opacity 2s ease-in-out;
+    opacity: 1;
 }
 
 
@@ -328,7 +370,41 @@ p::-webkit-scrollbar-thumb {
     }
 }
 
+/* .curtain {
+    position: absolute;
+    left: 16px;
+    top: 8px;
+    height: 120px;
+    width: 160px;
+}
+.curtain-left {
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    right: 0;
+    width: 0;
+    z-index: 2;
+    transition: 1s ease;
+    height: 100%;
+
+}
+
+.window:hover .curtain-left {
+    width: 100%;
+    left: 0px;
+    right: 0;
+}
+
+.curtain-right {
+    position: absolute;
+    top: 8px;
+    width: 100%;
+    right: 0px;
+    z-index: 1;
+} */
+
 .window-hover {
+    display: inline;
     height: 100%;
     transition: opacity 2s ease-in-out;
 }
@@ -359,6 +435,8 @@ p::-webkit-scrollbar-thumb {
     display: inline;
 }
 
+
+
 .window-hover:hover .window-day {
     display: none;
 }
@@ -368,10 +446,17 @@ p::-webkit-scrollbar-thumb {
 }
 
 .window-text {
+    position: sticky;
+    position: -webkit-sticky;
+    bottom: 0;
+    opacity: 0;
+}
+
+/* .window-text {
     left: 190px;
     top: 0px;
     opacity: 0;
-}
+} */
 
 /* image carousel */
 
@@ -636,7 +721,7 @@ p::-webkit-scrollbar-thumb {
 /* hidden night time elements */
 
 .hide-night .background-night,
-.hide-night .circle-night,
+.hide-night .circle-night-container,
 .hide-night .window-night,
 .hide-night .door-night, 
 .hide-night .moon {
@@ -656,3 +741,4 @@ p::-webkit-scrollbar-thumb {
 .hide-night .smoke-white {
     opacity: 1;
 }
+

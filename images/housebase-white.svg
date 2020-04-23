@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="640" height="700.501" viewBox="0 0 640 700.501">
   <g id="housebase-white" transform="translate(-656 -172)">
-    <path id="House" d="M-3484,608.5h-496V248L-3732,0l248,248V608.5Z" transform="translate(4707.999 264)" fill="rgba(255,255,255,0.93)"/>
+    <path id="House" d="M-3484,608.5h-496V248L-3732,0l248,248V608.5Z" transform="translate(4707.999 264)" fill="#fff"/>
     <path id="Roof" d="M656,480l40,40L976,240l280,280,40-40L976,160Z" transform="translate(0 12)" fill="rgba(255,255,255,0.93)"/>
     <path id="chimney" d="M5140,344l-64-64V224.866h64Z" transform="translate(-3948 34)" fill="rgba(255,255,255,0.93)"/>
   </g>
