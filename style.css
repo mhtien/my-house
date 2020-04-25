@@ -309,7 +309,8 @@ html, body {
     display:none;
 }
 
-.circle-hover:hover .circle-text {
+.circle:hover .circle-text,
+.circle:hover .circle-night-text {
     opacity: 1;
 }
 
@@ -319,12 +320,6 @@ html, body {
     left: 170px;
     opacity: 0;
 }
-
-.circle:hover .night-text {
-    transition: opacity 2s ease-in-out;
-    opacity: 1;
-}
-
 
 /* Ground floor elements */
 
@@ -416,6 +411,7 @@ html, body {
  }
 
 .window-day {
+    top:0;
 }
 
 .window-night {
@@ -424,9 +420,18 @@ html, body {
 }
 
 .window-color {
+    top:0;
     display: none;
 }
 
+.window-night-container {
+    height: 100%;
+    transition: opacity 2s ease-in-out;
+    z-index: 1;
+}
+.window-night-text {
+    opacity: 0;
+}
 .window:hover .carousel {
     display: inline;
 }
@@ -435,20 +440,22 @@ html, body {
     display: inline;
 }
 
-
-
 .window-hover:hover .window-day {
     display: none;
 }
 
-.window-hover:hover .window-text {
+.window:hover .window-text {
+    opacity: 1;
+}
+
+.window:hover .window-night-text {
     opacity: 1;
 }
 
 .window-text {
-    position: sticky;
-    position: -webkit-sticky;
-    bottom: 0;
+    position: absolute;
+    left: 200px;
+    top: 0;
     opacity: 0;
 }
 
@@ -581,7 +588,6 @@ html, body {
 /* door at night time */
 .door-night {
     transition: opacity 2s ease-in-out;
-    bottom: 0;
 }
 
 @media (min-width: 768px) {
@@ -591,6 +597,10 @@ html, body {
         /* bottom: 1.5%; */
         /* left: 0%; */
     }
+}
+
+.door-night-text {
+    opacity: 0;
 }
 
 .door-hover:hover .door-day {
@@ -624,10 +634,19 @@ html, body {
     }
 }
 
-.door-hover:hover .door-text {
+.door-night-container {
+    height:100%;
+    transition: opacity 2s ease-in-out;
+    z-index: 1;
+}
+
+.door:hover .door-text {
     opacity: 1;
 } 
 
+.door:hover .door-night-text {
+    opacity: 1;
+}
 /* Ground */
 
 .ground-line {
@@ -722,8 +741,8 @@ html, body {
 
 .hide-night .background-night,
 .hide-night .circle-night-container,
-.hide-night .window-night,
-.hide-night .door-night, 
+.hide-night .window-night-container,
+.hide-night .door-night-container, 
 .hide-night .moon {
     opacity: 0;
 }
