@@ -1,6 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1095.657" viewBox="0 0 1920 1095.657">
-  <g id="Background" transform="translate(0 2)">
-    <rect id="Rectangle_17" data-name="Rectangle 17" width="1917.523" height="1079" transform="translate(0 -2)" fill="#bbeef3"/>
-    <path id="Path_9" data-name="Path 9" d="M3910,470.5s-75.116,54.6-225.349,185.526S3469.04,536.242,3398.1,359.352s-534.16,20.893-670.482,55.713-200.31-47.356-367.235-55.713S1990,470.5,1990,470.5V996.382l1920,6.275Z" transform="translate(-1990 91)" fill="rgba(255,255,255,0.52)"/>
-  </g>
+<svg id="background" xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <path id="Path_59" data-name="Path 59" d="M0,0H1920V1079H0Z" fill="#bbeef3"/>
+  <path id="Path_9" data-name="Path 9" d="M3910,470.5s-75.116,54.6-225.349,185.526S3469.04,536.242,3398.1,359.352s-534.16,20.893-670.482,55.713-200.31-47.356-367.235-55.713S1990,470.5,1990,470.5V991H3910Z" transform="translate(-1990 89)" fill="#def6f9"/>
 </svg>
