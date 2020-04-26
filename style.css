@@ -50,31 +50,38 @@ html, body {
  p {
     font-family: Arial, Helvetica, sans-serif;
     color: #2D475D;
-    font-size: small;
+    font-size: 12px;
  }
 
- /* format for all text boxes */
+ /* format for all paragrapn text boxes */
  .text-box {
+    /* positioning */
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.6);
-    border: 5px solid rgba(222, 220, 220, 0.6);
-    overflow-x: hidden;
+    box-sizing: border-box;
+    margin: 0;
+    bottom: 0;
+    top: 0;
     overflow-y: scroll;
-    padding: 5px;
-    border-radius: 3px;
+    width: 100px;
     transition: opacity 1s linear;
     z-index: 1;
  }
 
+ /* text box styling */
+ .text-box {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 5px solid rgba(222, 220, 220, 0.6);
+    padding: 5px;
+    border-radius: 3px;
+ }
+
  @media (min-width: 768px) {
     .text-box { 
-        position: absolute;
-        width: 100px;
         max-height: none;
-        padding: 5px;
-        border-radius: 3px;
         transition: opacity 1s linear;
-        overflow: auto;
+        overflow-y: unset;
+        width: 150px;
+        bottom: auto;
     }
  }
 
@@ -191,6 +198,17 @@ html, body {
     margin-right: auto;
 }
 
+@media (min-width: 768px) {
+    .smoke1, .smoke3 {
+        margin-left: 20%;
+        margin-right: auto;
+    }
+    
+    .smoke2 {
+        margin-left: 30%;
+        margin-right: auto;
+    }
+}
 
 .links-logo {
     /* transition: opacity 1s linear; */
@@ -249,7 +267,8 @@ html, body {
 }
 
 .circle-hover {
-    height: 100%;
+    background-image: url("images/circularwindow-white.svg");
+    /* height: 100%; */
     transition: opacity 2s ease-in-out;
 }
 
@@ -282,10 +301,16 @@ html, body {
 }
 
 .circle-text {
-    position: absolute;
-    display: inline;
-    left: 170px;
     opacity: 0;
+    left: 170px;
+}
+
+@media (min-width: 768px) {
+    .circle-text {
+        bottom: 100px;
+        top: auto;
+        left: 100px;
+    }
 }
 
 /* Ground floor elements */
@@ -318,8 +343,7 @@ html, body {
     top: 19.5%;
     display: block;
     /* centered in parent div */
-    left: 50%;
-    transform: translate(-50%, 0%);
+    margin: auto;
 }
 
 @media (min-width: 768px) {
@@ -332,39 +356,6 @@ html, body {
     }
 }
 
-/* .curtain {
-    position: absolute;
-    left: 16px;
-    top: 8px;
-    height: 120px;
-    width: 160px;
-}
-.curtain-left {
-    position: absolute;
-    bottom: 0;
-    left: 100%;
-    right: 0;
-    width: 0;
-    z-index: 2;
-    transition: 1s ease;
-    height: 100%;
-
-}
-
-.window:hover .curtain-left {
-    width: 100%;
-    left: 0px;
-    right: 0;
-}
-
-.curtain-right {
-    position: absolute;
-    top: 8px;
-    width: 100%;
-    right: 0px;
-    z-index: 1;
-} */
-
 .window-hover {
     display: inline;
     height: 100%;
@@ -373,8 +364,7 @@ html, body {
 /* Centre position sets all elements in the x axis */
 .center-position {
     position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
+    left: 0;
  }
 
 .window-day {
@@ -389,6 +379,18 @@ html, body {
 .window-color {
     top:0;
     display: none;
+}
+
+.window-text {
+    left: 190px;
+    opacity: 0;
+}
+
+@media (min-width: 768px) {
+    .window-text {
+        bottom: 100px;
+        top: auto;
+    }
 }
 
 .window-night-container {
@@ -419,24 +421,13 @@ html, body {
     opacity: 1;
 }
 
-.window-text {
-    position: absolute;
-    left: 200px;
-    top: 0;
-    opacity: 0;
-}
-
-/* .window-text {
-    left: 190px;
-    top: 0px;
-    opacity: 0;
-} */
-
 /* image carousel */
 
 .carousel {
     display:none;
     top: 8px;
+    left: 50%;
+    transform: translate(-50%,0);
     height: 120px;
     margin: auto;
     width: 160px;
@@ -592,12 +583,16 @@ html, body {
     left: 170px;
     opacity: 0;
 }
+.door-text span {
+    font-style: italic;
+}
 
 @media (min-width: 768px) {
     .door-text {
-        left:2%;
-        margin: auto;
-        top: 0px;
+        top: auto;
+        bottom: 200px;
+        left:-100px;
+      
     }
 }
 
@@ -635,6 +630,8 @@ html, body {
     max-width: 100%;
     transition: opacity 1s ease-in-out;
     top: 0;
+    left: 50%;
+    transform: translate(-50%,0);
     z-index: -1;
 }
 
@@ -655,10 +652,8 @@ html, body {
 
 @media (min-width: 768px) {
     .ground-text {
-        width: 60%;
+        width: 50%;
         margin: auto;
-        left: 50%;
-        transform: translate(-50%, 0);
 
     }
 }
@@ -681,13 +676,14 @@ html, body {
 }
 
 .letterbox-text {
-    top: -120px;
+    top: -50px;
+    bottom: auto;
     opacity: 0;
 }
 
 @media (min-width: 768px) {
     .letterbox-text {
-        top: -80px;
+        left: -50px;
     }
 }
 
