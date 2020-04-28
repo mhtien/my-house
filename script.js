@@ -4,23 +4,16 @@ const sun = document.getElementsByClassName("sun-moon")[0];
 function nightMode(event) {
     const hiddenNight = document.body.classList;
     const bodyClass = document.body;
-    const sunVis = document.getElementsByClassName("sun-vis")[0];
-    const house = document.getElementsByClassName("house")[0];
 
-
+// if statement suggests site is day time
     if (hiddenNight != "hide-night") {
         bodyClass.classList.add("hide-night");
         bodyClass.classList.remove("hide-day");
-        sunVis.classList.remove("hide-element");
-        house.classList.add("house-hover");
     
-
+// else statement suggests site is night time
     } else {
         bodyClass.classList.remove("hide-night");
         bodyClass.classList.add("hide-day");
-        sunVis.classList.add("hide-element");
-        house.classList.remove("house-hover");
-    
     }
 
 }
