@@ -5,12 +5,12 @@ function nightMode(event) {
     const hiddenNight = document.body.classList;
     const bodyClass = document.body;
 
-// if statement suggests site is day time
+    // if statement suggests site is day time
     if (hiddenNight != "hide-night") {
         bodyClass.classList.add("hide-night");
         bodyClass.classList.remove("hide-day");
-    
-// else statement suggests site is night time
+
+        // else statement suggests site is night time
     } else {
         bodyClass.classList.remove("hide-night");
         bodyClass.classList.add("hide-day");
@@ -28,68 +28,165 @@ const rightArrow = document.getElementsByClassName("right-arrow")[0];
 const playButton = document.getElementsByClassName("play")[0];
 const pauseButton = document.getElementsByClassName("pause")[0];
 
+const imageCarousel = document.getElementById("image-carousel");
+const carouselSlides = document.getElementById("carousel-slides");
+let carouselLength = carouselSlides.childElementCount;
+
+if (carouselLength === 1) {
+    leftArrow.classList.add("hide-element");
+    rightArrow.classList.add("hide-element");
+    playButton.classList.add("hide-element");
+    pauseButton.classList.add("hide-element");
+}
+
+if (carouselLength === 2) {
+
+    // Getting img src
+
+    function cloneImage() {
+        for (let i = 0; i < carouselLength; i++) {
+
+            // new image element
+            let imageSrc = carouselSlides.children[i].children[0].getAttribute("src");
+            let imageAlt = carouselSlides.children[i].children[0].getAttribute("alt");
+            let newImg = document.createElement("img");
+            newImg.setAttribute("src", imageSrc);
+            newImg.setAttribute("alt", imageAlt);
+
+            // new div container with slide attribute
+            let newDiv = document.createElement("div");
+            newDiv.setAttribute("class", "slide image-clone");
+
+            // appending img to div
+            newDiv.appendChild(newImg);
+
+            // appending new div to carousel slides
+            carouselSlides.appendChild(newDiv);
+        }
+    }
+    cloneImage();
+}
+
 // getting the child elements of the container
 let childrenArray = document.getElementById("carousel-slides").children;
 
 //copy of the child elements for manipulation
 let slidesArray = [...childrenArray];
 
-let carouselLength = slidesArray.length;
+carouselLength = slidesArray.length;
+
 let i = 0;
 
 // Adding classes initially
 slidesArray[i].classList.add("img-active");
-slidesArray[i+1].classList.add("img-right");
-slidesArray[carouselLength-1].classList.add("img-left");
+slidesArray[i + 1].classList.add("img-right");
+slidesArray[carouselLength - 1].classList.add("img-left");
 
-function slideRight(event) {
+// for 3 slides 
 
-    // moves active slide out of frame
-    slidesArray[i].classList.add("img-left");
-    slidesArray[i].classList.remove("img-active");
+if (carouselLength === 3) {
 
-    // moves slide into frame
-    slidesArray[i + 1].classList.add("img-active");
-    slidesArray[i + 1].classList.remove("img-right");
+    function slideRight(event) {
 
-    // lines up next frames
-    slidesArray[i + 2].classList.add("img-right");
-    slidesArray[i + 2].classList.remove("img-hidden");
+        // moves active slide out of frame
+        slidesArray[i].classList.add("img-left");
+        slidesArray[i].classList.remove("img-active");
 
-    // for all other frames
-    slidesArray[i + 3].classList.remove("img-left")
-    slidesArray[i + 3].classList.add("img-hidden");
- 
-    // restarts array order
-    slidesArray.push(slidesArray.shift())
+        // moves slide into frame
+        slidesArray[i + 1].classList.add("img-active");
+        slidesArray[i + 1].classList.remove("img-right");
+        slidesArray[i + 1].classList.remove("img-index");
+
+        // lines up next frames
+        slidesArray[i + 2].classList.add("img-right");
+        slidesArray[i + 2].classList.remove("img-left");
+        slidesArray[i + 2].classList.add("img-index");
+
+        // restarts array order
+        slidesArray.push(slidesArray.shift())
+
+    }
+
+    function slideLeft(event) {
+
+        // moves active slide out of frame
+        slidesArray[i].classList.add("img-right");
+        slidesArray[i].classList.remove("img-active");
+
+
+        // moves slide into frame
+        slidesArray[carouselLength - 1].classList.add("img-active");
+        slidesArray[carouselLength - 1].classList.remove("img-left");
+        slidesArray[carouselLength - 1].classList.remove("img-index");
+        // lines up next frames
+        slidesArray[carouselLength - 2].classList.add("img-left");
+        slidesArray[carouselLength - 2].classList.remove("img-right");
+        slidesArray[carouselLength - 2].classList.add("img-index");
+
+        // restarts array order
+        slidesArray.unshift(slidesArray.pop())
+
+    }
 
 }
 
-function slideLeft(event) {
+// for more than 3 slides 
 
-    // moves active slide out of frame
-    slidesArray[i].classList.add("img-right");
-    slidesArray[i].classList.remove("img-active");
+if (carouselLength > 3) {
 
-    // moves slide into frame
-    slidesArray[carouselLength - 1].classList.add("img-active");
-    slidesArray[carouselLength - 1].classList.remove("img-left");
+    // for 4 slides or more
+    function slideRight(event) {
 
-    // lines up next frames
-    slidesArray[carouselLength - 2].classList.add("img-left");
-    slidesArray[carouselLength - 2].classList.remove("img-hidden");
+        // moves active slide out of frame
+        slidesArray[i].classList.add("img-left");
+        slidesArray[i].classList.remove("img-active");
 
-    // for all other frames
-    slidesArray[carouselLength - 3].classList.remove("img-right");
-    slidesArray[carouselLength - 3].classList.add("img-hidden");
-    
-    // restarts array order
-    slidesArray.unshift(slidesArray.pop())
+        // moves slide into frame
+        slidesArray[i + 1].classList.add("img-active");
+        slidesArray[i + 1].classList.remove("img-right");
 
+        // lines up next frames
+        slidesArray[i + 2].classList.add("img-right");
+        slidesArray[i + 2].classList.remove("img-hidden");
+
+        // for all other frames
+        for (let j = 3; j < slidesArray.length; j++) {
+            slidesArray[i + j].classList.remove("img-left");
+            slidesArray[i + j].classList.add("img-hidden");
+        }
+
+        // restarts array order
+        slidesArray.push(slidesArray.shift())
+
+    }
+
+    function slideLeft(event) {
+
+        // moves active slide out of frame
+        slidesArray[i].classList.add("img-right");
+        slidesArray[i].classList.remove("img-active");
+
+        // moves slide into frame
+        slidesArray[carouselLength - 1].classList.add("img-active");
+        slidesArray[carouselLength - 1].classList.remove("img-left");
+
+        // lines up next frames
+        slidesArray[carouselLength - 2].classList.add("img-left");
+        slidesArray[carouselLength - 2].classList.remove("img-hidden");
+
+        // for all other frames
+        for (let j = 3; j < slidesArray.length; j++) {
+            slidesArray[carouselLength - j].classList.remove("img-right");
+            slidesArray[carouselLength - j].classList.add("img-hidden");
+        }
+        // restarts array order
+        slidesArray.unshift(slidesArray.pop())
+
+    }
 }
 
 function playSlides(event) {
-    play = setInterval(slideRight, 2000);
+    play = setInterval(slideRight, 1500);
     playButton.classList.add("play-hide");
     pauseButton.classList.remove("play-hide");
 }
@@ -110,6 +207,8 @@ function keyPress(event) {
         return slideLeft();
     }
 }
+
+
 // event listener for clicking left and right
 rightArrow.addEventListener("click", slideRight);
 leftArrow.addEventListener("click", slideLeft);
@@ -120,3 +219,4 @@ document.addEventListener("keyup", keyPress);
 // event listener for clicking play and pause
 playButton.addEventListener("click", playSlides);
 pauseButton.addEventListener("click", pauseSlides);
+
