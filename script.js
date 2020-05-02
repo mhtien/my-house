@@ -25,6 +25,7 @@ sun.addEventListener("click", nightMode);
 const leftArrow = document.getElementsByClassName("left-arrow")[0];
 const rightArrow = document.getElementsByClassName("right-arrow")[0];
 
+const playerButton = document.getElementsByClassName("player-btn")[0];
 const playButton = document.getElementsByClassName("play")[0];
 const pauseButton = document.getElementsByClassName("pause")[0];
 
@@ -116,7 +117,7 @@ function slideRight(event) {
 
     // attributes required for 3 slides
     if (carouselLength === 3) {
-        for (let j=0; j<carouselLength; j++) {
+        for (let j = 0; j < carouselLength; j++) {
             if (slidesArray[j].classList.contains("img-right")) {
                 // adds index for image to move from right to left without being seen
                 slidesArray[j].classList.add("img-index");
@@ -130,9 +131,9 @@ function slideRight(event) {
     // attributes required for more than 3 slides
     if (carouselLength > 3) {
         for (let j = 0; j < carouselLength; j++) {
-            if (slidesArray[j].classList.contains("img-right") || 
-            slidesArray[j].classList.contains("img-active") || 
-            slidesArray[j].classList.contains("img-left")) {
+            if (slidesArray[j].classList.contains("img-right") ||
+                slidesArray[j].classList.contains("img-active") ||
+                slidesArray[j].classList.contains("img-left")) {
                 // brings images to the front by removing index
                 slidesArray[j].classList.remove("img-index");
             } else {
@@ -161,11 +162,11 @@ function slideLeft(event) {
     slidesArray[carouselLength - 2].classList.add("img-left");
 
     // removes right class from original active slide
-    slidesArray[i+1].classList.remove("img-right");
+    slidesArray[i + 1].classList.remove("img-right");
 
     // attributes required for 3 slides
     if (carouselLength === 3) {
-        for (let j=0; j<carouselLength; j++) {
+        for (let j = 0; j < carouselLength; j++) {
             if (slidesArray[j].classList.contains("img-left")) {
                 // adds index for image to move from left to right without being seen
                 slidesArray[j].classList.add("img-index");
@@ -179,9 +180,9 @@ function slideLeft(event) {
     // attributes required for more than 3 slides
     if (carouselLength > 3) {
         for (let j = 0; j < carouselLength; j++) {
-            if (slidesArray[j].classList.contains("img-right") || 
-            slidesArray[j].classList.contains("img-active") || 
-            slidesArray[j].classList.contains("img-left")) {
+            if (slidesArray[j].classList.contains("img-right") ||
+                slidesArray[j].classList.contains("img-active") ||
+                slidesArray[j].classList.contains("img-left")) {
                 // brings images to the front by removing index
                 slidesArray[j].classList.remove("img-index");
             } else {
@@ -201,7 +202,6 @@ function createDots() {
     // for when there are 2 images in the carousel and ignores clones
     if (twoDots === true) {
         for (let k = 0; k < 2; k++) {
-
             let newDotDiv = document.createElement("div");
             newDotDiv.setAttribute("alt", "dot");
             carouselDots.appendChild(newDotDiv);
@@ -273,18 +273,28 @@ function leftDot() {
     }
 }
 
-function playSlides(event) {
-    play = setInterval(slideRight, 1500);
-    playDot = setInterval(rightDot, 1500);
-    playButton.classList.add("play-hide");
-    pauseButton.classList.remove("play-hide");
-}
+let isCarouselPlaying = false;
 
-function pauseSlides() {
-    clearInterval(play);
-    clearInterval(playDot);
-    playButton.classList.remove("play-hide");
-    pauseButton.classList.add("play-hide");
+function playSlides(event) {
+    if (isCarouselPlaying === false) {
+        // calling slide and dot function
+        play = setInterval(slideRight, 1500);
+        playDot = setInterval(rightDot, 1500);
+        // toggle between the play and pause button
+        playButton.classList.add("play-hide");
+        pauseButton.classList.remove("play-hide");
+        // toggles variable
+        isCarouselPlaying = true;
+    } else {
+        // calling slide and dot function
+        clearInterval(play);
+        clearInterval(playDot);
+        // toggle between the play and pause button
+        playButton.classList.remove("play-hide");
+        pauseButton.classList.add("play-hide");
+        // toggles variable
+        isCarouselPlaying = false;
+    }
 }
 
 // function for pressing left and right arrow keys
@@ -297,6 +307,9 @@ function keyPress(event) {
         slideLeft();
         leftDot();
     }
+    // if (event.which === 32) {
+    //     playSlides();
+    // }
 }
 
 
@@ -308,10 +321,8 @@ leftArrow.addEventListener("click", slideLeft);
 rightArrow.addEventListener("click", rightDot);
 leftArrow.addEventListener("click", leftDot);
 
-
 // event listener for left and right arrow keys
 document.addEventListener("keyup", keyPress);
 
 // event listener for clicking play and pause
-playButton.addEventListener("click", playSlides);
-pauseButton.addEventListener("click", pauseSlides);
+playerButton.addEventListener("click", playSlides);
