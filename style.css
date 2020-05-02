@@ -448,12 +448,17 @@ button > img {
     z-index:2;
 }
 
-.dots img {
-    padding:1px;
+.dots div {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-image: url(images/dot.svg);
+    background-repeat: no-repeat;
 }
 
 .dots .dot-active {
-    background-color: #7E8F90;
+    background-image: url(images/dot-color.svg);
+    background-repeat: no-repeat;
     transition: 0.5s linear;
 }
 
