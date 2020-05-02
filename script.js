@@ -17,11 +17,11 @@ function nightMode(event) {
     }
 
 }
-
+// Event listener for clicking sun or moon
 sun.addEventListener("click", nightMode);
 
 
-// image carousel
+// image carousel variables
 const leftArrow = document.getElementsByClassName("left-arrow")[0];
 const rightArrow = document.getElementsByClassName("right-arrow")[0];
 
@@ -31,10 +31,15 @@ const pauseButton = document.getElementsByClassName("pause")[0];
 const imageCarousel = document.getElementById("image-carousel");
 const carouselSlides = document.getElementById("carousel-slides");
 
-let carouselLength = carouselSlides.childElementCount;
-
 const carouselDots = document.getElementsByClassName("dots")[0];
 
+// initial length of carousel - required for  the two slide option
+let carouselLength = carouselSlides.childElementCount;
+// variable to determin if the slides count was originally two
+let twoDots = false;
+
+
+// if there is only 1 slide, the buttons are hidden
 if (carouselLength === 1) {
     leftArrow.classList.add("hide-element");
     rightArrow.classList.add("hide-element");
@@ -42,13 +47,13 @@ if (carouselLength === 1) {
     pauseButton.classList.add("hide-element");
 }
 
+// if there are two slides, the images will be cloned for sliding motion to work left and right
+
 if (carouselLength === 2) {
 
-    // Getting img src
-
+    // cloning the two images in the HTML
     function cloneImage() {
         for (let i = 0; i < carouselLength; i++) {
-
             // new image element
             let imageSrc = carouselSlides.children[i].children[0].getAttribute("src");
             let imageAlt = carouselSlides.children[i].children[0].getAttribute("alt");
@@ -58,6 +63,8 @@ if (carouselLength === 2) {
 
             // new div container with slide attribute
             let newDiv = document.createElement("div");
+
+            // class "image clone" for reference only
             newDiv.setAttribute("class", "slide image-clone");
 
             // appending img to div
@@ -67,35 +74,21 @@ if (carouselLength === 2) {
             carouselSlides.appendChild(newDiv);
         }
     }
+
+    // running function of cloning image
     cloneImage();
+    // changing variable to detect dots for 2 slides
+    twoDots = true;
 }
 
-
-// getting the child elements of the container
+// getting and the child elements of the slides container
 let childrenArray = document.getElementById("carousel-slides").children;
-
 //copy of the child elements for manipulation
 let slidesArray = [...childrenArray];
-
+// variable for length of array
 carouselLength = slidesArray.length;
 
-// creating dots
-function createDots() {
-    if (carouselLength > 1) {
-
-        for (let k = 0; k < carouselLength; k++) {
-
-            let newDotImg = document.createElement("img");
-            newDotImg.setAttribute("src", "images\\dot.svg");
-            newDotImg.setAttribute("alt", "dot");
-            carouselDots.appendChild(newDotImg);
-        }
-    }
-}
-
-createDots();
-
-
+// variable for slide
 let i = 0;
 
 // Adding classes initially
@@ -103,118 +96,173 @@ slidesArray[i].classList.add("img-active");
 slidesArray[i + 1].classList.add("img-right");
 slidesArray[carouselLength - 1].classList.add("img-left");
 
-// for 3 slides 
+// slide right function
+function slideRight(event) {
 
-if (carouselLength === 3) {
+    // moves active slide out of frame
+    slidesArray[i].classList.add("img-left");
+    slidesArray[i].classList.remove("img-active");
 
-    function slideRight(event) {
+    // moves slide into frame
+    slidesArray[i + 1].classList.add("img-active");
+    slidesArray[i + 1].classList.remove("img-right");
 
-        // moves active slide out of frame
-        slidesArray[i].classList.add("img-left");
-        slidesArray[i].classList.remove("img-active");
+    // lines up next frames
+    slidesArray[i + 2].classList.add("img-right");
 
-        // moves slide into frame
-        slidesArray[i + 1].classList.add("img-active");
-        slidesArray[i + 1].classList.remove("img-right");
+    // attributes required for 3 slides
+    if (carouselLength === 3) {
+        // removes index for slide that will be active
         slidesArray[i + 1].classList.remove("img-index");
-
-        // lines up next frames
-        slidesArray[i + 2].classList.add("img-right");
+        // removes poisition of left, and sets index to move behind all frames so it can position as next slide on the right
         slidesArray[i + 2].classList.remove("img-left");
         slidesArray[i + 2].classList.add("img-index");
-
-        // restarts array order
-        slidesArray.push(slidesArray.shift())
-
     }
 
-    function slideLeft(event) {
+    // attributes required for more than 3 slides
+    if (carouselLength > 3) {
+        slidesArray[i + 2].classList.remove("img-index");
+        for (let j = 3; j < slidesArray.length; j++) {
+            slidesArray[i + j].classList.remove("img-left");
+            slidesArray[i + j].classList.add("img-index");
+            console.log("j", j);
+        }
 
-        // moves active slide out of frame
-        slidesArray[i].classList.add("img-right");
-        slidesArray[i].classList.remove("img-active");
+    }
+    // restarts array order
+    slidesArray.push(slidesArray.shift())
+}
+
+// slide left function
+function slideLeft(event) {
+
+    // moves active slide out of frame
+    slidesArray[i].classList.add("img-right");
+    slidesArray[i].classList.remove("img-active");
+
+    // moves slide into frame
+    slidesArray[carouselLength - 1].classList.add("img-active");
+    slidesArray[carouselLength - 1].classList.remove("img-left");
+
+    // lines up next frames
+    slidesArray[carouselLength - 2].classList.add("img-left");
 
 
-        // moves slide into frame
-        slidesArray[carouselLength - 1].classList.add("img-active");
-        slidesArray[carouselLength - 1].classList.remove("img-left");
+    // attributes required for 3 slides
+    if (carouselLength === 3) {
+        // removes index for slide that will be active
         slidesArray[carouselLength - 1].classList.remove("img-index");
-        // lines up next frames
-        slidesArray[carouselLength - 2].classList.add("img-left");
+        // removes poisition of right, and sets index to move behind all frames so it can position as next slide on the left
         slidesArray[carouselLength - 2].classList.remove("img-right");
         slidesArray[carouselLength - 2].classList.add("img-index");
-
-        // restarts array order
-        slidesArray.unshift(slidesArray.pop())
-
     }
+
+    // attributes required for more than 3 slides
+    if (carouselLength > 3) {
+        slidesArray[carouselLength - 2].classList.remove("img-index");
+        for (let j = 3; j < slidesArray.length; j++) {
+            slidesArray[carouselLength - j].classList.remove("img-right");
+            slidesArray[carouselLength - j].classList.add("img-index");
+        }
+    }
+
+    // restarts array order
+    slidesArray.unshift(slidesArray.pop())
 
 }
 
-// for more than 3 slides 
+// creating dots
+function createDots() {
+    // for when there are 2 images in the carousel and ignores clones
+    if (twoDots === true) {
+        for (let k = 0; k < 2; k++) {
 
-if (carouselLength > 3) {
-
-    // for 4 slides or more
-    function slideRight(event) {
-
-        // moves active slide out of frame
-        slidesArray[i].classList.add("img-left");
-        slidesArray[i].classList.remove("img-active");
-
-        // moves slide into frame
-        slidesArray[i + 1].classList.add("img-active");
-        slidesArray[i + 1].classList.remove("img-right");
-
-        // lines up next frames
-        slidesArray[i + 2].classList.add("img-right");
-        slidesArray[i + 2].classList.remove("img-hidden");
-
-        // for all other frames
-        for (let j = 3; j < slidesArray.length; j++) {
-            slidesArray[i + j].classList.remove("img-left");
-            slidesArray[i + j].classList.add("img-hidden");
+            let newDotDiv = document.createElement("div");
+            newDotDiv.setAttribute("alt", "dot");
+            carouselDots.appendChild(newDotDiv);
         }
 
-        // restarts array order
-        slidesArray.push(slidesArray.shift())
+        // creates dots for 3 or more slides
+    } else if (carouselLength > 1) {
+        for (let k = 0; k < carouselLength; k++) {
 
+            let newDotDiv = document.createElement("div");
+            newDotDiv.setAttribute("alt", "dot");
+            carouselDots.appendChild(newDotDiv);
+        }
     }
+}
+// calling function
+createDots();
 
-    function slideLeft(event) {
 
-        // moves active slide out of frame
-        slidesArray[i].classList.add("img-right");
-        slidesArray[i].classList.remove("img-active");
+// sets the first dot
+let d = 0;
+carouselDots.children[d].setAttribute("class", "dot-active");
 
-        // moves slide into frame
-        slidesArray[carouselLength - 1].classList.add("img-active");
-        slidesArray[carouselLength - 1].classList.remove("img-left");
-
-        // lines up next frames
-        slidesArray[carouselLength - 2].classList.add("img-left");
-        slidesArray[carouselLength - 2].classList.remove("img-hidden");
-
-        // for all other frames
-        for (let j = 3; j < slidesArray.length; j++) {
-            slidesArray[carouselLength - j].classList.remove("img-right");
-            slidesArray[carouselLength - j].classList.add("img-hidden");
+function rightDot() {
+    // for when there are 2 images in the carousel and ignores clones
+    if (twoDots === true) {
+        if (carouselDots.children[0].hasAttribute("class", "dot-active") === true) {
+            carouselDots.children[0].removeAttribute("class", "dot-active");
+            carouselDots.children[1].setAttribute("class", "dot-active");
+        } else {
+            carouselDots.children[0].setAttribute("class", "dot-active");
+            carouselDots.children[1].removeAttribute("class", "dot-active");
         }
-        // restarts array order
-        slidesArray.unshift(slidesArray.pop())
+    // for 3 or more images
+    } else {
+        for (let x = 0; x < carouselLength; x++) {
+            carouselDots.children[x].removeAttribute("class", "dot-active");
+        }
+        console.log("first", d);
+        if (d >= carouselLength - 1) {
+            d = 0;
+        } else {
+            d += 1;
+        }
+        console.log("second", d);
+        console.log(carouselLength);
+        carouselDots.children[d].setAttribute("class", "dot-active");
+    }
+}
 
+function leftDot() {
+    // for when there are 2 images in the carousel and ignores clones
+    if (twoDots === true) {
+        if (carouselDots.children[0].hasAttribute("class", "dot-active") === true) {
+            carouselDots.children[0].removeAttribute("class", "dot-active");
+            carouselDots.children[1].setAttribute("class", "dot-active");
+        } else {
+            carouselDots.children[0].setAttribute("class", "dot-active");
+            carouselDots.children[1].removeAttribute("class", "dot-active");
+        }
+    // for 3 or more images
+    } else {
+        for (let x = 0; x < carouselLength; x++) {
+            carouselDots.children[x].removeAttribute("class", "dot-active");
+        }
+        console.log("first", d);
+        if (d <= 0) {
+            d = carouselLength - 1;
+        } else {
+            d -= 1;
+        }
+        console.log("second", d);
+        carouselDots.children[d].setAttribute("class", "dot-active");
     }
 }
 
 function playSlides(event) {
     play = setInterval(slideRight, 1500);
+    playDot = setInterval(rightDot, 1500);
     playButton.classList.add("play-hide");
     pauseButton.classList.remove("play-hide");
 }
 
-
 function pauseSlides() {
     clearInterval(play);
+    clearInterval(playDot);
     playButton.classList.remove("play-hide");
     pauseButton.classList.add("play-hide");
 }
@@ -222,10 +270,12 @@ function pauseSlides() {
 // function for pressing left and right arrow keys
 function keyPress(event) {
     if (event.which === 39) {
-        return slideRight();
+        slideRight();
+        rightDot();
     }
     if (event.which === 37) {
-        return slideLeft();
+        slideLeft();
+        leftDot();
     }
 }
 
@@ -234,6 +284,9 @@ function keyPress(event) {
 rightArrow.addEventListener("click", slideRight);
 leftArrow.addEventListener("click", slideLeft);
 
+// dots
+rightArrow.addEventListener("click", rightDot);
+leftArrow.addEventListener("click", leftDot);
 
 
 // event listener for left and right arrow keys
@@ -242,42 +295,3 @@ document.addEventListener("keyup", keyPress);
 // event listener for clicking play and pause
 playButton.addEventListener("click", playSlides);
 pauseButton.addEventListener("click", pauseSlides);
-
-let d = 0;
-
-// set first dot
-carouselDots.children[d].setAttribute("class", "dot-active");
-
-function rightDot() {
-    for (let x = 0; x<carouselLength; x++) {
-        carouselDots.children[x].removeAttribute("class", "dot-active");
-    }
-    console.log("first", d);
-    if (d >= carouselLength-1) {
-        d = 0;
-    } else {
-        d+=1;
-    }
-    console.log("second",d);
-    console.log(carouselLength);
-    carouselDots.children[d].setAttribute("class", "dot-active");
-}
-
-function leftDot() {
-    for (let x = 0; x<carouselLength; x++) {
-        carouselDots.children[x].removeAttribute("class", "dot-active");
-    }
-    console.log("first", d);
-    if (d <= 0) {
-        d = carouselLength -1;
-    } else {
-        d-=1;
-    }
-    console.log("second",d);
-    carouselDots.children[d].setAttribute("class", "dot-active");
-}
-
-
-// dots
-rightArrow.addEventListener("click", rightDot);
-leftArrow.addEventListener("click", leftDot);
