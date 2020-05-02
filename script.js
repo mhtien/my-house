@@ -30,7 +30,10 @@ const pauseButton = document.getElementsByClassName("pause")[0];
 
 const imageCarousel = document.getElementById("image-carousel");
 const carouselSlides = document.getElementById("carousel-slides");
+
 let carouselLength = carouselSlides.childElementCount;
+
+const carouselDots = document.getElementsByClassName("dots")[0];
 
 if (carouselLength === 1) {
     leftArrow.classList.add("hide-element");
@@ -67,6 +70,7 @@ if (carouselLength === 2) {
     cloneImage();
 }
 
+
 // getting the child elements of the container
 let childrenArray = document.getElementById("carousel-slides").children;
 
@@ -74,6 +78,23 @@ let childrenArray = document.getElementById("carousel-slides").children;
 let slidesArray = [...childrenArray];
 
 carouselLength = slidesArray.length;
+
+// creating dots
+function createDots() {
+    if (carouselLength > 1) {
+
+        for (let k = 0; k < carouselLength; k++) {
+
+            let newDotImg = document.createElement("img");
+            newDotImg.setAttribute("src", "images\\dot.svg");
+            newDotImg.setAttribute("alt", "dot");
+            carouselDots.appendChild(newDotImg);
+        }
+    }
+}
+
+createDots();
+
 
 let i = 0;
 
@@ -213,6 +234,8 @@ function keyPress(event) {
 rightArrow.addEventListener("click", slideRight);
 leftArrow.addEventListener("click", slideLeft);
 
+
+
 // event listener for left and right arrow keys
 document.addEventListener("keyup", keyPress);
 
@@ -220,3 +243,26 @@ document.addEventListener("keyup", keyPress);
 playButton.addEventListener("click", playSlides);
 pauseButton.addEventListener("click", pauseSlides);
 
+let d = 0;
+
+function rightDot() {
+    for (let x = 0; x<carouselLength; x++) {
+        carouselDots.children[x].removeAttribute("class", "dot-active");
+    }
+
+    if (d > carouselLength-2) {
+        d = 0;
+    } else {
+        d+=1;
+    }
+    console.log(d);
+    console.log(carouselLength);
+    carouselDots.children[d].setAttribute("class", "dot-active");
+}
+
+
+
+
+// dots
+rightArrow.addEventListener("click", rightDot);
+leftArrow.addEventListener("click", slideLeft);
