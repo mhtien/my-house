@@ -14,6 +14,7 @@
 
     <title>MHT here!</title>
 </head>
+<!-- body onclick for iOS -->
 
 <body id="body" class="hide-night" onclick>
     <div class="title">
@@ -78,18 +79,19 @@
                     <div id="image-carousel" class="carousel center-position">
                         <div class="carousel-btns">
                             <!-- play/pause -->
-                            <div class="play play-pause">
-                                <button class="button">
-                                    <img src="images\play.svg" alt="play">
-                                </button>
-                            </div>
+                            <div class="player-btn">
+                                <div class="play play-pause">
+                                    <button class="button">
+                                        <img src="images\play.svg" alt="play">
+                                    </button>
+                                </div>
 
-                            <div class="pause play-pause play-hide">
-                                <button class="button">
-                                    <img src="images\pause.svg" alt="pause">
-                                </button>
+                                <div class="pause play-pause play-hide">
+                                    <button class="button">
+                                        <img src="images\pause.svg" alt="pause">
+                                    </button>
+                                </div>
                             </div>
-
                             <!-- arrow keys -->
                             <div class="right-arrow">
                                 <button class="button">
@@ -109,37 +111,27 @@
                         <div id="carousel-slides">
                             <div class="slide">
                                 <img src="images\image-1.svg" alt="image1">
+                                <div class="caption">I like to eat</div>
                             </div>
                             <div class="slide">
                                 <img src="images\image-2.svg" alt="image2">
+                                <div class="caption">I like to eat</div>
                             </div>
-                            <div class="slide image-3">
+                            <!-- <div class="slide">
                                 <img src="images\image-3.svg" alt="image3">
-                            </div>
-                            <div class="slide image-4">
-                                <img src="images\image-4.svg" alt="image4">
-                            </div>
-                            <div class="slide image-5">
-                                <img src="images\image-5.svg" alt="image5">
+                                <div class="caption">I like to eat</div>
                             </div>
                             <div class="slide">
-                                <img src="images\image-1.svg" alt="image1">
+                                <img src="images\image-4.svg" alt="image4">
+                                <div class="caption">I like to eat</div>
                             </div>
                             <div class="slide">
-                                <img src="images\image-2.svg" alt="image2">
-                            </div>
-                            <div class="slide image-3">
-                                <img src="images\image-3.svg" alt="image3">
-                            </div>
-                            <div class="slide image-4">
-                                <img src="images\image-4.svg" alt="image4">
-                            </div>
-                            <div class="slide image-5">
                                 <img src="images\image-5.svg" alt="image5">
-                            </div>
+                                <div class="caption">I like to eat</div>
+                            </div> -->
                         </div>
                     </div>
-                    <p class="window-text text-box text-box-style">This is my attempt at an Image Carousel showing just
+                    <p class="window-text text-box text-box-style">This is my Image Carousel showing just
                         a few of my
                         favourite things</p>
                 </div>

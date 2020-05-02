@@ -62,6 +62,13 @@ if (carouselLength === 2) {
             newImg.setAttribute("src", imageSrc);
             newImg.setAttribute("alt", imageAlt);
 
+            // new text caption
+            let captionClass = carouselSlides.children[i].children[1].getAttribute("class");
+            let captionText = carouselSlides.children[i].children[1].innerHTML;
+            let newCaption = document.createElement("div");
+            newCaption.setAttribute("class", captionClass);
+            newCaption.innerHTML = captionText;
+
             // new div container with slide attribute
             let newDiv = document.createElement("div");
 
@@ -70,6 +77,9 @@ if (carouselLength === 2) {
 
             // appending img to div
             newDiv.appendChild(newImg);
+
+            // appending caption text to div
+            newDiv.appendChild(newCaption);
 
             // appending new div to carousel slides
             carouselSlides.appendChild(newDiv);
