@@ -245,24 +245,39 @@ pauseButton.addEventListener("click", pauseSlides);
 
 let d = 0;
 
+// set first dot
+carouselDots.children[d].setAttribute("class", "dot-active");
+
 function rightDot() {
     for (let x = 0; x<carouselLength; x++) {
         carouselDots.children[x].removeAttribute("class", "dot-active");
     }
-
-    if (d > carouselLength-2) {
+    console.log("first", d);
+    if (d >= carouselLength-1) {
         d = 0;
     } else {
         d+=1;
     }
-    console.log(d);
+    console.log("second",d);
     console.log(carouselLength);
     carouselDots.children[d].setAttribute("class", "dot-active");
 }
 
-
+function leftDot() {
+    for (let x = 0; x<carouselLength; x++) {
+        carouselDots.children[x].removeAttribute("class", "dot-active");
+    }
+    console.log("first", d);
+    if (d <= 0) {
+        d = carouselLength -1;
+    } else {
+        d-=1;
+    }
+    console.log("second",d);
+    carouselDots.children[d].setAttribute("class", "dot-active");
+}
 
 
 // dots
 rightArrow.addEventListener("click", rightDot);
-leftArrow.addEventListener("click", slideLeft);
+leftArrow.addEventListener("click", leftDot);
