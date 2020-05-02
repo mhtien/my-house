@@ -53,17 +53,15 @@ html, body {
 p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
-    color: #2D506D;
-    /* color: #4F5859; */
 }
 
  .hide-day p {
-    /* color: #2D506D; */
+    color: #2D506D;
 
  }
 
  .hide-night p {
-    /* color: #4F5859; */
+    color: #4F5859;
   
  }
 
@@ -94,7 +92,7 @@ p {
  /* text box styling */
  .hide-day .text-box-style {
     background-color: white;
-    border: 3px solid #2D506D;
+    border: 3px solid #C1C9CA;
     padding: 5px;
     border-radius: 3px;
  }
@@ -420,7 +418,7 @@ p {
 /* image carousel */
 
 .carousel {
-    display:none;
+    /* display:none; */
     top: 8px;
     left: 50%;
     transform: translate(-50%,0);
@@ -431,18 +429,40 @@ p {
     z-index: 1;
 }
 
-.button {
+button {
     border: none;
+    height: 100%;
     padding: 0;
     background: none;
+}
+
+button > img {
+    width: 10px;
+    height: auto;
+}
+
+.dots {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index:2;
+}
+
+.dots img {
+    padding:1px;
+}
+
+.dots .dot-active {
+    background-color: #7E8F90;
+    transition: 0.5s linear;
 }
 
 /* play/pause buttons */
 .play-pause {
     position: absolute;
     z-index: 2;
-    bottom:2%;
-    left: 50%;
+    bottom: 10px;
+    width: 100%;
 }
 
 
@@ -453,16 +473,22 @@ p {
 /* arrows */
 .left-arrow {
     position: absolute;
-    top: 40%;
-    left: 2%;
+    height: 100%;
+    width: 25px;
+    left: 0;
     z-index: 2;
 }
 
 .right-arrow {
     position: absolute;
-    top: 40%;
-    right: 2%;
+    height: 100%;
+    width: 25px;
+    right: 0;
     z-index: 2;
+}
+
+.right-arrow:hover {
+    background-color: rgba(128, 128, 128, 0.2);
 }
 
 /* slides */
@@ -483,6 +509,11 @@ p {
 .img-hidden {
     display: none;
 }
+
+.img-index {
+    z-index: -1;
+}
+
 .img-right {
     left: 100%;
     }
@@ -616,7 +647,7 @@ p {
 
 @media (min-width: 768px) {
     .ground-text {
-        width: 50%;
+        width: 80%;
         margin: auto;
     }
 }
@@ -638,7 +669,7 @@ p {
     background-image: url("images/letterbox-white.svg");
     height: 111px;
     width: 88px;
-    bottom: -5px;
+    bottom: 0px;
 }
 
 .hide-night .letterbox:hover {
@@ -674,7 +705,8 @@ p {
 
 .hide-day .door-day,
 .hide-day .circle-day,
-.hide-day .window-day {
+.hide-day .window-day,
+.hide-day .sun-vis {
     opacity: 0;
 }
 
