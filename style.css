@@ -22,7 +22,6 @@ html, body {
 .hide-night {
     background-image: url("images/background.svg");
     background-color: #BBEEF3;
-   
 }
 
 .hide-day {
@@ -399,7 +398,7 @@ p {
 /* image carousel */
 
 .carousel {
-    /* display:none; */
+    display:none;
     top: 8px;
     left: 50%;
     transform: translate(-50%,0);
@@ -430,6 +429,10 @@ button {
 button > img {
     width: 10px;
     height: auto;
+}
+
+button:focus {
+    outline: none;
 }
 
 .dots {
