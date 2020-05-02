@@ -97,6 +97,7 @@ slidesArray[i + 1].classList.add("img-right");
 slidesArray[carouselLength - 1].classList.add("img-left");
 
 // slide right function
+
 function slideRight(event) {
 
     // moves active slide out of frame
@@ -107,28 +108,40 @@ function slideRight(event) {
     slidesArray[i + 1].classList.add("img-active");
     slidesArray[i + 1].classList.remove("img-right");
 
-    // lines up next frames
+    // lines up next slide
     slidesArray[i + 2].classList.add("img-right");
+
+    // removes left class from original active slide 
+    slidesArray[carouselLength - 1].classList.remove("img-left");
 
     // attributes required for 3 slides
     if (carouselLength === 3) {
-        // removes index for slide that will be active
-        slidesArray[i + 1].classList.remove("img-index");
-        // removes poisition of left, and sets index to move behind all frames so it can position as next slide on the right
-        slidesArray[i + 2].classList.remove("img-left");
-        slidesArray[i + 2].classList.add("img-index");
+        for (let j=0; j<carouselLength; j++) {
+            if (slidesArray[j].classList.contains("img-right")) {
+                // adds index for image to move from right to left without being seen
+                slidesArray[j].classList.add("img-index");
+            } else {
+                // brings images to the front by removing index
+                slidesArray[j].classList.remove("img-index");
+            }
+        }
     }
 
     // attributes required for more than 3 slides
     if (carouselLength > 3) {
-        slidesArray[i + 2].classList.remove("img-index");
-        for (let j = 3; j < slidesArray.length; j++) {
-            slidesArray[i + j].classList.remove("img-left");
-            slidesArray[i + j].classList.add("img-index");
-            console.log("j", j);
+        for (let j = 0; j < carouselLength; j++) {
+            if (slidesArray[j].classList.contains("img-right") || 
+            slidesArray[j].classList.contains("img-active") || 
+            slidesArray[j].classList.contains("img-left")) {
+                // brings images to the front by removing index
+                slidesArray[j].classList.remove("img-index");
+            } else {
+                // put all non-active images towards the back
+                slidesArray[j].classList.add("img-index");
+            }
         }
-
     }
+
     // restarts array order
     slidesArray.push(slidesArray.shift())
 }
@@ -144,25 +157,37 @@ function slideLeft(event) {
     slidesArray[carouselLength - 1].classList.add("img-active");
     slidesArray[carouselLength - 1].classList.remove("img-left");
 
-    // lines up next frames
+    // lines up next slide
     slidesArray[carouselLength - 2].classList.add("img-left");
 
+    // removes right class from original active slide
+    slidesArray[i+1].classList.remove("img-right");
 
     // attributes required for 3 slides
     if (carouselLength === 3) {
-        // removes index for slide that will be active
-        slidesArray[carouselLength - 1].classList.remove("img-index");
-        // removes poisition of right, and sets index to move behind all frames so it can position as next slide on the left
-        slidesArray[carouselLength - 2].classList.remove("img-right");
-        slidesArray[carouselLength - 2].classList.add("img-index");
+        for (let j=0; j<carouselLength; j++) {
+            if (slidesArray[j].classList.contains("img-left")) {
+                // adds index for image to move from left to right without being seen
+                slidesArray[j].classList.add("img-index");
+            } else {
+                // brings images to the front by removing index
+                slidesArray[j].classList.remove("img-index");
+            }
+        }
     }
 
     // attributes required for more than 3 slides
     if (carouselLength > 3) {
-        slidesArray[carouselLength - 2].classList.remove("img-index");
-        for (let j = 3; j < slidesArray.length; j++) {
-            slidesArray[carouselLength - j].classList.remove("img-right");
-            slidesArray[carouselLength - j].classList.add("img-index");
+        for (let j = 0; j < carouselLength; j++) {
+            if (slidesArray[j].classList.contains("img-right") || 
+            slidesArray[j].classList.contains("img-active") || 
+            slidesArray[j].classList.contains("img-left")) {
+                // brings images to the front by removing index
+                slidesArray[j].classList.remove("img-index");
+            } else {
+                // put all non-active images towards the back
+                slidesArray[j].classList.add("img-index");
+            }
         }
     }
 
@@ -210,19 +235,16 @@ function rightDot() {
             carouselDots.children[0].setAttribute("class", "dot-active");
             carouselDots.children[1].removeAttribute("class", "dot-active");
         }
-    // for 3 or more images
+        // for 3 or more images
     } else {
         for (let x = 0; x < carouselLength; x++) {
             carouselDots.children[x].removeAttribute("class", "dot-active");
         }
-        console.log("first", d);
         if (d >= carouselLength - 1) {
             d = 0;
         } else {
             d += 1;
         }
-        console.log("second", d);
-        console.log(carouselLength);
         carouselDots.children[d].setAttribute("class", "dot-active");
     }
 }
@@ -237,18 +259,16 @@ function leftDot() {
             carouselDots.children[0].setAttribute("class", "dot-active");
             carouselDots.children[1].removeAttribute("class", "dot-active");
         }
-    // for 3 or more images
+        // for 3 or more images
     } else {
         for (let x = 0; x < carouselLength; x++) {
             carouselDots.children[x].removeAttribute("class", "dot-active");
         }
-        console.log("first", d);
         if (d <= 0) {
             d = carouselLength - 1;
         } else {
             d -= 1;
         }
-        console.log("second", d);
         carouselDots.children[d].setAttribute("class", "dot-active");
     }
 }
