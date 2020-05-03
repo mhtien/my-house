@@ -1,19 +1,18 @@
 //  sky transition
-const sun = document.getElementsByClassName("sun-moon")[0];
+const sun = document.getElementsByClassName("sun-moon-container")[0];
 
 function nightMode(event) {
-    const hiddenNight = document.body.classList;
-    const bodyClass = document.body;
+    const bodyClass = document.body.classList;
 
     // if statement suggests site is day time
-    if (hiddenNight != "hide-night") {
-        bodyClass.classList.add("hide-night");
-        bodyClass.classList.remove("hide-day");
+    if (bodyClass.contains("day-time") === false) {
+        bodyClass.add("day-time");
+        bodyClass.remove("night-time");
 
         // else statement suggests site is night time
     } else {
-        bodyClass.classList.remove("hide-night");
-        bodyClass.classList.add("hide-day");
+        bodyClass.remove("day-time");
+        bodyClass.add("night-time");
     }
 
 }
@@ -25,14 +24,13 @@ sun.addEventListener("click", nightMode);
 const leftArrow = document.getElementsByClassName("left-arrow")[0];
 const rightArrow = document.getElementsByClassName("right-arrow")[0];
 
-const playerButton = document.getElementsByClassName("player-btn")[0];
 const playButton = document.getElementsByClassName("play")[0];
 const pauseButton = document.getElementsByClassName("pause")[0];
 
 const imageCarousel = document.getElementById("image-carousel");
 const carouselSlides = document.getElementById("carousel-slides");
 
-const carouselDots = document.getElementsByClassName("dots")[0];
+const carouselDots = document.getElementsByClassName("dots-container")[0];
 
 // initial length of carousel - required for  the two slide option
 let carouselLength = carouselSlides.childElementCount;
@@ -42,10 +40,10 @@ let twoDots = false;
 
 // if there is only 1 slide, the buttons are hidden
 if (carouselLength === 1) {
-    leftArrow.classList.add("hide-element");
-    rightArrow.classList.add("hide-element");
-    playButton.classList.add("hide-element");
-    pauseButton.classList.add("hide-element");
+    leftArrow.classList.add("btn-hidden");
+    rightArrow.classList.add("btn-hidden");
+    playButton.classList.add("btn-hidden");
+    pauseButton.classList.add("btn-hidden");
 }
 
 // if there are two slides, the images will be cloned for sliding motion to work left and right
@@ -145,10 +143,10 @@ function slideRight(event) {
                 slidesArray[j].classList.contains("img-active") ||
                 slidesArray[j].classList.contains("img-left")) {
                 // brings images to the front by removing index
-                slidesArray[j].classList.remove("img-index");
+                slidesArray[j].classList.remove("img-hidden");
             } else {
                 // put all non-active images towards the back
-                slidesArray[j].classList.add("img-index");
+                slidesArray[j].classList.add("img-hidden");
             }
         }
     }
@@ -194,17 +192,16 @@ function slideLeft(event) {
                 slidesArray[j].classList.contains("img-active") ||
                 slidesArray[j].classList.contains("img-left")) {
                 // brings images to the front by removing index
-                slidesArray[j].classList.remove("img-index");
+                slidesArray[j].classList.remove("img-hidden");
             } else {
                 // put all non-active images towards the back
-                slidesArray[j].classList.add("img-index");
+                slidesArray[j].classList.add("img-hidden");
             }
         }
     }
 
     // restarts array order
     slidesArray.unshift(slidesArray.pop())
-
 }
 
 // creating dots
@@ -235,7 +232,7 @@ createDots();
 let d = 0;
 carouselDots.children[d].setAttribute("class", "dot-active");
 
-function rightDot() {
+function slideRightDot() {
     // for when there are 2 images in the carousel and ignores clones
     if (twoDots === true) {
         if (carouselDots.children[0].hasAttribute("class", "dot-active") === true) {
@@ -259,7 +256,7 @@ function rightDot() {
     }
 }
 
-function leftDot() {
+function slideLeftDot() {
     // for when there are 2 images in the carousel and ignores clones
     if (twoDots === true) {
         if (carouselDots.children[0].hasAttribute("class", "dot-active") === true) {
@@ -289,7 +286,7 @@ function playSlides(event) {
     if (isCarouselPlaying === false) {
         // calling slide and dot function
         play = setInterval(slideRight, 1500);
-        playDot = setInterval(rightDot, 1500);
+        playDot = setInterval(slideRightDot, 1500);
         // toggle between the play and pause button
         playButton.classList.add("play-hide");
         pauseButton.classList.remove("play-hide");
@@ -311,11 +308,11 @@ function playSlides(event) {
 function keyPress(event) {
     if (event.which === 39) {
         slideRight();
-        rightDot();
+        slideRightDot();
     }
     if (event.which === 37) {
         slideLeft();
-        leftDot();
+        slideLeftDot();
     }
     // if (event.which === 32) {
     //     playSlides();
@@ -328,11 +325,12 @@ rightArrow.addEventListener("click", slideRight);
 leftArrow.addEventListener("click", slideLeft);
 
 // dots
-rightArrow.addEventListener("click", rightDot);
-leftArrow.addEventListener("click", leftDot);
+rightArrow.addEventListener("click", slideRightDot);
+leftArrow.addEventListener("click", slideLeftDot);
 
 // event listener for left and right arrow keys
 document.addEventListener("keyup", keyPress);
 
 // event listener for clicking play and pause
-playerButton.addEventListener("click", playSlides);
+playButton.addEventListener("click", playSlides);
+pauseButton.addEventListener("click", playSlides);

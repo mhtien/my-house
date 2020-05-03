@@ -16,40 +16,40 @@
 </head>
 <!-- body onclick for iOS -->
 
-<body id="body" class="hide-night" onclick>
+<body id="body" class="day-time" onclick>
     <div class="title">
         <h1 class="welcome font-style">Welcome to my Home!</h1>
         <h2 class="instruction font-style">Please do browse around by hovering over or clicking elements</h2>
     </div>
     <div class="sky-line">
-        <div class="sun-moon">
-            <div class="sun-vis">
+        <div class="sun-moon-container">
+            <div class="sun satellite">
             </div>
-            <div class="moon">
+            <div class="moon satellite">
             </div>
         </div>
-        <div class="smoke">
-            <div class="smoke1 smoke-hover">
+        <div class="smoke-container">
+            <div class="smoke1 smoke">
                 <a href="https://www.freecodecamp.org/mhtien" target="_blank" alt="freecodecamp">
                     <img class="links-logo" src="images\freeCodeCamp-logo.svg" alt="freeCodeCamp logo">
                 </a>
             </div>
 
-            <div class="smoke2 smoke-hover">
+            <div class="smoke2 smoke">
                 <a href="https://github.com/mhtien/my-house" target="_blank" alt="github website repo">
                     <img class="links-logo" src="images\github-logo.svg" alt="github logo">
                 </a>
             </div>
-            <div class="smoke3 smoke-hover">
+            <div class="smoke3 smoke">
                 <a href="https://www.codewars.com/users/mhtien" target="_blank" alt="codewars">
                     <img class="links-logo" src="images\CodeWars.png" alt="codewars logo">
                 </a>
             </div>
         </div>
     </div>
-    <div class="house elements-width">
-        <div class="circle">
-            <div class="circle-night">
+    <div class="house-container elements-width">
+        <div class="circle-window-container">
+            <div class="circle-night circle-window">
                 <p class="circle-night-text circle-text text-box text-box-style">I have thoroughly enjoyed the
                     experience of
                     applying to FAC, I did not think I would learn so much about code whilst doing the
@@ -59,7 +59,7 @@
                     it feels even better once you get over the hurdle!
                 </p>
             </div>
-            <div class="circle-day">
+            <div class="circle-day circle-window">
                 <p class="circle-text text-box text-box-style">I want to become a web developer and I hope I am able to
                     do this
                     with Founders and Coders. I was interested in your programme because of the peer-learning
@@ -67,43 +67,41 @@
                 </p>
             </div>
         </div>
-        <div class="gf-elements">
-            <div class="window">
-                <div class="window-night">
+        <div class="gf-container">
+            <div class="rectangle-window-container">
+                <div class="rectangle-window-night rectangle-window">
                     <p class="window-night-text window-text text-box text-box-style">I spent most evenings and weekends
                         learning to
                         code. The webpage was difficult at first but as I got further and further with HTML, CSS, and
                         Javascript I was more comfortable with my decisions. There was a lot of googling as well...</p>
                 </div>
-                <div class="window-day">
-                    <div id="image-carousel" class="carousel center-position">
+                <div class="rectangle-window-day rectangle-window">
+                    <div id="image-carousel" class="img-carousel">
                         <div class="carousel-btns">
                             <!-- play/pause -->
-                            <div class="player-btn">
-                                <div class="play play-pause">
-                                    <button class="button">
-                                        <img src="images\play.svg" alt="play">
-                                    </button>
-                                </div>
+                            <div class="play btn-play-pause">
+                                <button class="button">
+                                    <img src="images\play.svg" alt="play">
+                                </button>
+                            </div>
 
-                                <div class="pause play-pause play-hide">
-                                    <button class="button">
-                                        <img src="images\pause.svg" alt="pause">
-                                    </button>
-                                </div>
+                            <div class="pause btn-play-pause play-hide">
+                                <button class="button">
+                                    <img src="images\pause.svg" alt="pause">
+                                </button>
                             </div>
                             <!-- arrow keys -->
-                            <div class="right-arrow">
+                            <div class="right-arrow btn-arrow">
                                 <button class="button">
                                     <img src="images\right-arrow.svg" alt="right-arrow">
                                 </button>
                             </div>
-                            <div class="left-arrow">
+                            <div class="left-arrow btn-arrow">
                                 <button class="button">
                                     <img src="images\left-arrow.svg" alt="left-arrow">
                                 </button>
                             </div>
-                            <div class="dots">
+                            <div class="dots-container">
                             </div>
                         </div>
 
@@ -111,23 +109,23 @@
                         <div id="carousel-slides">
                             <div class="slide">
                                 <img src="images\image-1.svg" alt="image1">
-                                <div class="caption">I like to eat</div>
+                                <div class="text-caption">I like to eat</div>
                             </div>
                             <div class="slide">
                                 <img src="images\image-2.svg" alt="image2">
-                                <div class="caption">I like to eat</div>
+                                <div class="text-caption">I like to eat</div>
                             </div>
                             <div class="slide">
                                 <img src="images\image-3.svg" alt="image3">
-                                <div class="caption">I like to eat</div>
+                                <div class="text-caption">I like to eat</div>
                             </div>
                             <div class="slide">
                                 <img src="images\image-4.svg" alt="image4">
-                                <div class="caption">I like to eat</div>
+                                <div class="text-caption">I like to eat</div>
                             </div>
                             <div class="slide">
                                 <img src="images\image-5.svg" alt="image5">
-                                <div class="caption">I like to eat</div>
+                                <div class="text-caption">I like to eat</div>
                             </div>
                         </div>
                     </div>
@@ -137,34 +135,34 @@
                 </div>
             </div>
 
-            <div class="door">
-                <div class="door-night">
+            <div class="door-container">
+                <div class="door-night door">
                     <p class="door-night-text door-text text-box text-box-style">I have been thinking about becoming a
                         developer for
                         the past few months as I believe technology will become more integrated within our lives than it
-                        already is, and I would like to be involved in that change. I decided to commit to changing
+                        already is, and I would like to be part of that change. I decided to commit to changing
                         careers at the beginning of this year and by luck stumbled across FAC and started the
                         pre-requisites as soon as I could</p>
                 </div>
-                <div class="door-day">
+                <div class="door-day door">
                     <img class="me-char" src="images\me-door.svg" alt="me-door">
                     <p class="door-text text-box text-box-style">Hey! My name is My Hoa <span>(mi-ha)</span>. Thank you
                         for
                         dropping by and getting to know me. Please take a look around, there is no order to this
-                        just hover/click away and hope that the code I’ve written makes something pop out!</p>
+                        just hover/click away!</p>
                 </div>
 
 
             </div>
         </div>
         <div class="letterbox">
-            <p class="letterbox-text text-box text-box-style">Contact me <a href="">here</a></p>
+            <p class="letterbox-text text-box text-box-style">Contact me <a href="https://uk.linkedin.com/in/my-hoa-tien-15b0b656" target="_blank">here</a></p>
         </div>
 
         <!-- </div> -->
     </div>
     <hr class="ground-line elements-width">
-    <div class="ground elements-width">
+    <div class="ground-container elements-width">
         <p class="ground-text text-box-style">I have been an Architect for just over 5 years and I am currently working
             in a
             practice that specialises in healthcare. I enjoy the array of problem solving aspects from space

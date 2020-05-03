@@ -1,9 +1,5 @@
 /* The main CSS has been created for mobile/portable device viewing, eveything within Media query is for desktop viewing */
-
-/* helping with viewing containers  */
-* {
-    /* border: solid 1px green; */
-}
+/* The media queries for desktop where relevant are right below the mobile version code */
 
 /* removing the scroll bar along x-axis */
 html, body {
@@ -12,19 +8,20 @@ html, body {
     margin: auto;
     position: relative;
     text-align: center;
+    /* allow day and night time mode backgrounds to have smooth transition */
     transition: background-image 2s ease-in-out;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-
 /* background */
-.hide-night {
+/* background image for day time */
+.day-time {
     background-image: url("images/background.svg");
     background-color: #BBEEF3;
 }
-
-.hide-day {
+/* background image for night time */
+.night-time {
     background-image: url("images/background-night.svg");
     background-color: #7E8F90;
 }
@@ -34,20 +31,18 @@ p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
 }
-
- .hide-day p {
-    color: #2D506D;
-
- }
-
- .hide-night p {
+/* changed  font colours for day and night mode */
+.night-time p {
     color: #4F5859;
-  
+ }
+ .day-time p {
+    color: #2D506D;
  }
 
- /* format for all paragrapn text boxes */
+ /* format for all paragraph text boxes that pop up except ground one */
+
+ /* positioning */
  .text-box {
-    /* positioning */
     position: absolute;
     box-sizing: border-box;
     margin: 0;
@@ -58,85 +53,86 @@ p {
     transition: opacity 0.5s linear;
     z-index: 1;
  }
-
+/* for desktop mode */
  @media (min-width: 768px) {
     .text-box { 
         max-height: none;
         transition: opacity 1s linear;
         overflow-y: unset;
-        width: 150px;
+        width: 200px;
         bottom: auto;
     }
  }
 
  /* text box styling */
- .hide-day .text-box-style {
+
+ .text-box-style {
     background-color: white;
+    padding: 5px;
+    border-radius: 3px;
+ }
+ 
+ /* colour of text box border day and night */
+ .night-time .text-box-style {
     border: 3px solid #C1C9CA;
-    padding: 5px;
-    border-radius: 3px;
  }
 
- .hide-night .text-box-style {
-    background-color: white;
+ .day-time .text-box-style {
     border: 3px solid #B7B7B7;
-    padding: 5px;
-    border-radius: 3px;
  }
 
- /* font style for h1 and h2 */
+ /* font style for h1 and h2 classes */
  .font-style {
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     transition: 2s ease-in-out;
 }
 
- .hide-night .font-style {
-    color: #2D506D;
-}
-
-.hide-day .font-style {
-    color: white;
-}
-
-
-/* underline for header test */
-.hide-night .welcome {
-    border-bottom:  #2D506D solid 2px;
-}
-
-.hide-day .welcome {
-    border-bottom:  white solid 2px;
-}
-
+/* font size for h1 class*/
 .welcome {
     display: inline;
     font-size: 1.5rem;
 }
-
+/* desktop mode */
 @media (min-width: 768px) {
     .welcome {
         font-size: 3rem;
     }
 }
 
-
-/* Sub-header text */
+/* size and position of h2 class */
 .instruction {
     font-size: 0.8rem;
     margin: 10px 20px;
 }
 
+/* font colour for day time and night time */
+.day-time .font-style {
+    color: #2D506D;
+}
+.night-time .font-style {
+    color: white;
+}
 
-/* Sky line */
+/* underline for header text day and night */
+.day-time .welcome {
+    border-bottom:  #2D506D solid 2px;
+}
+.night-time .welcome {
+    border-bottom:  white solid 2px;
+}
+
+
+/* Sky line - includes smoke, sun and moon*/
+/* Container to distance between Header text and house */
 .sky-line {
     display: block;
-    /* Set area distance between Header text and house */
     height: 180px;
 }
 
-/* sun and moon */
-.sun-moon {
+/* sun and moon container and position */
+.sun-moon-container {
+    cursor: pointer;
     display: inline;
     position: relative;
     height: 118px;
@@ -147,44 +143,39 @@ p {
     top: 20%;
 }
 
-@media (min-width: 768px) {
-    .sun-position {
-        left: 100%;
-    }
-}
-
-.sun-vis {
+/* position within container for sun and moon to be on top of eachother */
+.satellite {
     position: absolute;
-    background-image: url("images/sun-white.svg");
     height: 100%;
     width: 100%;
     transition: opacity 2s ease-in-out;
-}
-
-.moon {
-    position: absolute;
-    background-image: url("images/moon.svg");
-    height: 100%;
-    width: 100%;
     background-repeat: no-repeat;
-    transition: opacity 2s ease-in-out;
 }
 
+/* background image for day time */
+.sun {
+    background-image: url("images/sun-white.svg");
+}
+/* background image for night time */
+.moon {
+    background-image: url("images/moon.svg");
+}
 
-/* sun hover */
-.sun-moon:hover .sun-vis {
+/* sun hover to change from white to yellow */
+.sun-moon-container:hover .sun {
     background-image: url("images/sun-color.svg");
 }
 
-
 /* chimney smoke */
-.smoke {
+/* container for group of smoke */
+.smoke-container {
     display: inline;
     width: 50%;
     float:right;
 }
 
-.smoke-hover {
+/* size of container for each smoke cloud */
+.smoke {
     position: relative;
     background-image: url("images/smoke-white.svg");
     background-repeat: no-repeat;
@@ -194,30 +185,29 @@ p {
     z-index: 1;
 }
 
+/* position for smoke clouds */
 .smoke1, .smoke3 {
     margin-left: auto;
     margin-right: auto;
 }
-
 .smoke2 {
     margin-left: 40%;
     margin-right: auto;
 }
-
+/* desktop mode */
 @media (min-width: 768px) {
     .smoke1, .smoke3 {
         margin-left: 20%;
         margin-right: auto;
     }
-    
     .smoke2 {
         margin-left: 30%;
         margin-right: auto;
     }
 }
 
+/* positioning of link images within smoke cloud */
 .links-logo {
-    /* transition: opacity 1s linear; */
     position: absolute;
     height: 30px;
     bottom: 16px;
@@ -226,11 +216,11 @@ p {
     opacity: 0.3;
 }
 
-.smoke-hover:hover {
+/* hover image over smoke cloud and logo */
+.smoke:hover {
     background-image: url("images/smoke-grey.svg");
 }
-
-.smoke-hover:hover .links-logo {
+.smoke:hover .links-logo {
     opacity: 0.8;
 }
 
@@ -243,8 +233,8 @@ p {
     margin: auto;
 }
 
-/* main background */
-.house {
+/* main house background */
+.house-container {
     position: relative;
     width: 90%;
     background-image: url(images/housebase-white.svg);
@@ -254,37 +244,38 @@ p {
     padding-top: 200px;
 }
 
-
 /* Circular Winodw */
-.circle {
+
+/* circular window container and position */
+.circle-window-container {
     margin: auto auto 30px auto;
     position: relative;
     width: 167px;
     height: 167px;
 }
-
+/* position of background images within container */
+.circle-window {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: opacity 2s ease-in-out;
+    background-repeat: no-repeat;
+}
+/* background image for day time */
 .circle-day {
     background-image: url("images/circularwindow-white.svg");
-    height: 100%;
-    width: 100%;
-    transition: opacity 2s ease-in-out;
-    position: absolute;
 }
-
+/* background image for night time */
 .circle-night {
     background-image: url("images/circularwindow-night.svg");
-    height: 100%;
-    width: 100%;
-    transition: opacity 2s ease-in-out;
-    position: absolute;
 }
-
+/* position of text when hovering over circle window*/
 .circle-text {
     opacity: 0;
     right: 120px;
     bottom: 120px;
 }
-
+/* desktop mode */
 @media (min-width: 768px) {
     .circle-text {
         bottom: 100px;
@@ -293,39 +284,38 @@ p {
     }
 }
 
-/* hovered */
-
-.circle:hover .circle-day {
+/* hover to change backgroun image during day time */
+.circle-window-container:hover .circle-day {
     background-image: url("images/circularwindow-color.svg");
 }
-
-.circle:hover .circle-text,
-.circle:hover .circle-night-text {
+/* hover for pop up text day and night time */
+.circle-window-container:hover .circle-text,
+.circle-window-container:hover .circle-night-text {
     opacity: 1;
 }
 
-/* Ground floor elements */
-
-.gf-elements {
+/* Ground Floor Container */
+/* ground floor container for door and rectangular window */
+/* stacked on top of each other */
+.gf-container {
     display: block;
     max-width: 100%;
     height: auto;
     margin: 0 11.3%;
     background-color: white;
 }
-
-
+/* desktop mode */
+/* door and window next to each other */
 @media (min-width: 768px) {
-    .gf-elements {
+    .gf-container {
         height: 300px;
         position: relative;
     } 
 }
 
 /* Rectangular Window */
-
-/* Outer div sets the position of the window in y axis */
-.window {
+/* window container sets size and position of window */
+.rectangle-window-container {
     position: relative;
     height: 147px;
     width: 192px;
@@ -334,9 +324,9 @@ p {
     /* centered in parent div */
     margin: auto;
 }
-
+/* desktop mode position */
 @media (min-width: 768px) {
-    .window {
+    .rectangle-window-container {
         position: absolute;
         top: 20%;
         display: inline;
@@ -345,25 +335,29 @@ p {
     }
 }
 
-.window-day {
-    background-image: url("images/rectangularwindow-white.svg");
+/* position of background images within container */
+.rectangle-window {
     position: absolute;
     height: 100%;
     width: 100%;
     transition: opacity 2s ease-in-out;
+    background-repeat: no-repeat;
 }
-/* Centre position sets all elements in the x axis */
-.center-position {
-    position: absolute;
-    left: 0;
- }
-
+/* background image for day time */
+.rectangle-window-day {
+    background-image: url("images/rectangularwindow-white.svg");
+}
+/* background image for night time */
+.rectangle-window-night {
+    background-image: url("images/rectangularwindow-night.svg");
+}
+/* Text position for text when hovering over rectangle window */
 .window-text {
     left: 120px;
     bottom: 130px;
     opacity: 0;
 }
-
+/* desktop mode */
 @media (min-width: 768px) {
     .window-text {
         bottom: 100px;
@@ -371,44 +365,38 @@ p {
     }
 }
 
-.window-night {
-    position: absolute;
-    background-image: url("images/rectangularwindow-night.svg");
-    width: 100%;
-    height: 100%;
-    transition: opacity 2s ease-in-out;
-    z-index: 1;
-}
-.window-night-text {
-    opacity: 0;
-}
-.window:hover .carousel {
+/* hover over rectangle window to reveal image carousel */
+.rectangle-window-container:hover .img-carousel {
     display: inline;
 }
-
-.window:hover .window-day {
+/* hover over rectangle window day time to reveal colour change in window */
+.rectangle-window-container:hover .rectangle-window-day {
     background-image: url("images/rectangularwindow-color.svg");
 }
-
-.window:hover .window-text,
-.window:hover .window-night-text {
+/* hover over window container day and night to get assocaited text box to appear */
+.rectangle-window-container:hover .window-text,
+.rectangle-window-container:hover .rectangle-window-night-text {
     opacity: 1;
 }
 
-/* image carousel */
-
-.carousel {
+/* Image Carousel */
+/* image carousel size and position */
+.img-carousel {
+    position: absolute;
     display:none;
     top: 8px;
+    /* centres container withing parent container */
     left: 50%;
     transform: translate(-50%,0);
     height: 120px;
     margin: auto;
     width: 160px;
     overflow: hidden;
-    z-index: 1;
+    /* z-index: 1; */
 }
-.caption {
+/* text caption for each image slide */
+.text-caption {
+    /* display: none; */
     position: fixed;
     top: 0;
     padding-top: 10px;
@@ -419,78 +407,88 @@ p {
     padding: 5px;
 }
 
-button {
-    border: none;
-    height: 100%;
-    padding: 0;
-    background: none;
-}
-
-button > img {
-    width: 10px;
-    height: auto;
-}
-
-button:focus {
-    outline: none;
-}
-
-.dots {
+/* image slide dots to show position of image */
+/* position in image carousel container */
+.dots-container {
     position: absolute;
     width: 100%;
     bottom: 0;
     z-index:2;
 }
-
-.dots div {
+/* size and position of dot for slide image */
+.dots-container div {
     display: inline-block;
     width: 8px;
     height: 8px;
     background-image: url(images/dot.svg);
     background-repeat: no-repeat;
 }
-
-.dots .dot-active {
+/* to indicate current image shown  */
+.dots-container .dot-active {
     background-image: url(images/dot-color.svg);
     background-repeat: no-repeat;
     transition: 0.5s linear;
 }
 
-/* play/pause buttons */
-.play-pause {
+
+/* Image Carousel Buttons */
+/* play, pause, left and right buttons styling */
+button {
+    border: none;
+    height: 100%;
+    padding: 0;
+    background: none;
+}
+/* image size of buttons */
+button > img {
+    width: 10px;
+    height: auto;
+}
+/* removes outline when button is clicked */
+button:focus {
+    outline: none;
+}
+
+/* play and pause buttons positioning */
+.btn-play-pause {
     position: absolute;
     z-index: 2;
     bottom: 10px;
     width: 100%;
 }
 
-
+/* class to hide element */
 .play-hide {
     display: none;
 }
 
-/* arrows */
+/* size of left and right arrows and vertical position */
+.btn-arrow {
+    position: absolute;
+    height: 100%;
+    width: 25px;
+    /* positioning infront of all elements on website */
+    z-index: 2;
+}
+/* left slide arrow horizontal position */
 .left-arrow {
-    position: absolute;
-    height: 100%;
-    width: 25px;
-    left: 0;
-    z-index: 2;
+    left: 0; 
 }
-
+/* right slide arrow horizontal position */
 .right-arrow {
-    position: absolute;
-    height: 100%;
-    width: 25px;
     right: 0;
-    z-index: 2;
 }
-
-.right-arrow:hover {
+/* hover for shadow on right and left arrows */
+.btn-arrow:hover {
     background-color: rgba(128, 128, 128, 0.2);
 }
+/* hide buttons when only 1 image is included for image carousel */
+.btn-hidden {
+    opacity: 0;
+}
 
-/* slides */
+/* image slides */
+/* default size and position of each slide */
 .slide {
     position: absolute;
     overflow: hidden;
@@ -499,31 +497,31 @@ button:focus {
     transition: all 0.5s linear;
     margin: 0;
 }
-
+/* images inbedded with slide to fit within slide size */
 .slide img {
     max-width: 100%;
     height: auto;
 }
 
-/* position of next slide on the right */
+/* sliding motion for image carousel */
+
+/* for image carousels with more than 3 slides, all other slides hidden */
 .img-hidden {
     display: none;
 }
-
+/* for image carousels with 3 slides, index -1 prevents overlap of slides when sliding */
 .img-index {
     z-index: -1;
 }
-
+/* position of next slide on the right */
 .img-right {
     left: 100%;
     }
-
 /* position of active slide */
 .img-active {
     left: 0;
     z-index: 1;
     }
- 
 /* position of next slide on the left */
 .img-left {
     left: -100%;
@@ -531,72 +529,65 @@ button:focus {
 
 
 /* Door  */
-.door {
+/* size and position of all doors */
+.door-container {
     position: relative;
     margin: 30px auto auto auto;
     width: 167px;
     height: 240px;
     display: block;    
 }
-
+/* desktop mode */
 @media (min-width: 768px) {
-    .door {
+    .door-container {
         position: absolute;
         left: 10%;
         /* bottom is to keep image algned with house */
         bottom: 0;
     }
 }
-
-/* new image when door is hovered over */
-.door-day {
+/* position of day time and night time door within door container */
+.door {
     position: absolute;
-    background-image: url("images/door-white.svg");
     height: 100%;
     width: 100%;
     transition: opacity 2s ease-in-out;
+    background-repeat: no-repeat;
 }
 
+/* background image of door during day time */
+.door-day {
+    background-image: url("images/door-white.svg");
+}
+/* background image of door during night time */
+.door-night {
+    background-image: url("images/door-night.svg");
+}
+
+/* position of me at door */
 .me-char {
     position: absolute;
     display: none;
     left:51px;
     bottom: 0%;
-    /* test for sliding character */
-    /* opacity: 0;
-    transition: 0.5s linear;
-    left: 150px; */
-    
 }
 
-/* door at night time */
-.door-night {
-    transition: opacity 2s ease-in-out;
-}
-
-.door-night-text {
-    opacity: 0;
-}
-
-.door:hover .door-day {
+/* hover over day time door for change in colour */
+.door-container:hover .door-day {
     background-image: url("images/door-color.svg");
 }
-
-.door-day:hover .me-char {
+/* hover over day time door for me to appear */
+.door-container:hover .me-char {
     display: inline-block;
 }
 
-
- /* text position */
+ /* text position for door when hovered over */
  .door-text {
     bottom:120px;
     right: 120px;
     opacity: 0;
 }
-.door-text span {
-    font-style: italic;
-}
-
+/* desktop mode */
 @media (min-width: 768px) {
     .door-text {
         top: auto;
@@ -605,29 +596,28 @@ button:focus {
       
     }
 }
-
-.door-night {
-    position: absolute;
-    background-image: url("images/door-night.svg");
-    width: 100%;
-    height:100%;
-    transition: opacity 2s ease-in-out;
+/* styling of some text within door text class */
+.door-text span {
+    font-style: italic;
 }
 
-.door:hover .door-text,
-.door:hover .door-night-text {
+/* hover over door for text to appear - day and night time */
+.door-container:hover .door-text,
+.door-container:hover .door-night-text {
     opacity: 1;
 }
-/* Ground */
 
+
+/* Ground */
+/* line that runs across below house */
 .ground-line {
     border-top:  white solid 8px;
     margin: 5px auto;
     width: 100%;
-    z-index: 1;
 }
 
-.ground {
+/* container for foundations and text  */
+.ground-container {
     display: block;
     padding-bottom: 50px;
     width: 90%;
@@ -637,6 +627,7 @@ button:focus {
     margin: auto;
 }
 
+/* text position of text that appears when ground is hovered over */
 .ground-text {
     margin: 0px 50px;
     padding: 5px;
@@ -644,26 +635,27 @@ button:focus {
     transition: opacity 0.5s linear;
     z-index: 1;
 }
-
+/* desktop mode */
 @media (min-width: 768px) {
     .ground-text {
         width: 80%;
         margin: auto;
     }
 }
-
-.ground:hover {
+/* hover over ground to reveal background image */
+.ground-container:hover {
     background-image: url("images/foundation-white.svg");
     background-repeat: no-repeat;
     background-position: center top;
     background-size: contain;
 }
-
-.ground:hover .ground-text {
+/* hover over ground to reveal text */
+.ground-container:hover .ground-text {
     opacity: 1;
 }
 
 /* Letter box */
+/* size, position, and bakground image of letterbox */
 .letterbox {
     position: absolute;
     background-image: url("images/letterbox-white.svg");
@@ -672,48 +664,41 @@ button:focus {
     bottom: 0px;
 }
 
-.hide-night .letterbox:hover {
-    background-image: url("images/letterbox-color.svg"); 
-}
-
+/* position of text when letter box is hovered over */
 .letterbox-text {
     top: 50px;
     bottom: auto;
     opacity: 0;
+    width: auto;
 }
-
+/* desktop mode */
 @media (min-width: 768px) {
     .letterbox-text {
         left: -50px;
     }
 }
-
+/* hover over letter box for a new image during day time mode only */
+.day-time .letterbox:hover {
+    background-image: url("images/letterbox-color.svg"); 
+}
+/* hover over letter box, day or night time to reveal text */
 .letterbox:hover .letterbox-text {
     opacity: 1;
 }
 
 
-/* hidden night time elements */
-
-.hide-night .background-night,
-.hide-night .circle-night,
-.hide-night .window-night,
-.hide-night .door-night, 
-.hide-night .moon {
+/* hide night time elements during the day time mode */
+.day-time .background-night,
+.day-time .circle-night,
+.day-time .rectangle-window-night,
+.day-time .door-night, 
+.day-time .moon {
     opacity: 0;
 }
-
-.hide-day .door-day,
-.hide-day .circle-day,
-.hide-day .window-day,
-.hide-day .sun-vis {
+/* hiding day time elements during night time mode */
+.night-time .door-day,
+.night-time .circle-day,
+.night-time .rectangle-window-day,
+.night-time .sun {
     opacity: 0;
-}
-
-.hide-element {
-    opacity: 0;
-}
-
-.hide-night .smoke-white {
-    opacity: 1;
 }
