@@ -17,3 +17,6 @@ Concept - A variety of hovers for users to interact with to learn more informati
 Daytime and Nighttime mode transition with use of JS
 
 Image Carousel JS allows between 1 - 10 (tested up to 10) images to be placed in HTML.
+
+Known Issues
+Overflow issues on Safari
