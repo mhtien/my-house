@@ -23,7 +23,7 @@
     </filter>
   </defs>
   <g id="door-color" transform="translate(-776 -632)">
-    <rect id="Rectangle_2" data-name="Rectangle 2" width="167" height="240" transform="translate(776 632)" fill="#fff"/>
+    <path id="Path_60" data-name="Path 60" d="M0,0H167V240H0Z" transform="translate(776 632)" fill="#b7b7b7"/>
     <path id="Path_10" data-name="Path 10" d="M0,0H152V232H0Z" transform="translate(784 640)" fill="#dedcdc"/>
     <path id="Path_27" data-name="Path 27" d="M0,0H52.478V224H0Z" transform="translate(875.522 648)" fill="#b7b7b7"/>
     <path id="Path_11" data-name="Path 11" d="M0,0H83.522V224H0Z" transform="translate(792 648)" fill="#f4f4f4"/>
