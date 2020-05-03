@@ -5,8 +5,8 @@
     </clipPath>
   </defs>
   <g id="rectangularwindow-color" clip-path="url(#clip-path)">
-    <rect id="Rectangle_16" data-name="Rectangle 16" width="160" height="120" transform="translate(16 8)" fill="#dedcdc"/>
-    <path id="Subtraction_13" data-name="Subtraction 13" d="M-5794,136h-176V0h176V136ZM-5962,8V128h160V8Z" transform="translate(5978)" fill="#fff"/>
-    <rect id="Rectangle_15" data-name="Rectangle 15" width="192" height="8" transform="translate(0 139)" fill="#dedcdc"/>
+    <rect id="Rectangle_16" data-name="Rectangle 16" width="160" height="120" transform="translate(16 8)" fill="#f4f4f4"/>
+    <path id="Subtraction_13" data-name="Subtraction 13" d="M-5794,136h-176V0h176V136ZM-5962,8V128h160V8Z" transform="translate(5978)" fill="#dedcdc"/>
+    <rect id="Rectangle_15" data-name="Rectangle 15" width="192" height="8" transform="translate(0 139)" fill="#b7b7b7"/>
   </g>
 </svg>
