@@ -634,22 +634,21 @@ button:focus {
     background: transparent;
     transition: opacity 2s linear;
     position: relative;
+    height: 150px;
     margin: auto;
 }
 
-@media (min-width: 768px) {
-    .ground-container {
-        height: 150px;
-    }
-}
 
 /* text position of text that appears when ground is hovered over */
 .ground-text {
+    position: fixed;
     opacity: 0;
     padding: 5px;
     transition: opacity 0.5s linear;
     z-index: 1;
     margin-bottom: 0;
+    left: 0;
+    bottom: 0;
 }
 /* desktop mode */
 @media (min-width: 768px) {
@@ -659,6 +658,8 @@ button:focus {
         opacity: 0;
         width: 80%;
         transform: none;
+        left: unset;
+        bottom: unset;
     }
 }
 /* hover over ground to reveal background image */
